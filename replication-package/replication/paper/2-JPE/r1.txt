@@ -1,0 +1,34 @@
+Reviewer #1: This paper investigates the targeting of eight US transfer programs. It finds that for each program, transfer recipients have lower consumption and lifetime income than eligible non-recipients with similar incomes. Hence, voluntary take-up of these programs leads to better targeting in terms of consumption and lifetime income than hypothetical, otherwise-equivalent automatic programs would. Calculations from a calibrated, stylized model suggest that the benefits of self targeting are about nine cents per transfer dollar on average across programs. For most but not all of these programs, the targeting benefit outweighs the implied ordeal costs.
+
+This paper makes an important contribution to our understanding of the targeting of government programs. The vast majority of prior work on this topic has analyzed the targeting of marginal recipients with respect to a change in a single program, and most prior work has mainly focused on targeting with respect to current income. This paper is different in each of these respects, and as a result it is able to produce important new lessons. It is very well done, especially in its careful consideration of possible measurement issues in the survey data it uses. It also contributes a useful framework for interpreting its empirical results results and quantifying overall welfare impacts.
+
+My suggestions about how the paper could be improved follow.
+
+1. I think it would be valuable to at least discuss more extensively (and possibly briefly analyze) the considerable heterogeneity across programs. Is there any at least suggestive evidence on plausible mechanisms underlying the heterogeneity? That could be useful for drawing lessons that apply more broadly across multiple programs and for guiding future work on these programs.
+
+2. I like the welfare analysis and think the counterfactual policy you consider does a good job of isolating the core question of the paper. But it could be valuable to report other welfare-related results as well. For example, with similar assumptions to those you already make plus some outside evidence from the growing library of estimates of MVPFs (such as those in Hendren and Sprung-Keyser, 2020), it seems like you could calculate estimates of the MVPF of expanding the programs as they currently exist and of the MVPF of expanding the hypothetical automatic versions you consider. These could be ex ante MVPFs that account for within-lifetime insurance at least (if not across-type redistribution as well). (Sorry if I am missing something about why this would be difficult.) The contrast between the MVPFs of each actual vs. automatic program would be another way to make your main point about the value of self-targeting. And the estimates of MVPFs of the actual programs -- at
+least some of which, as far as I know, do not exist in the literature, at least not the ex ante version that reflects insurance value -- would help inform decisions of how to allocate government funds across programs.
+
+3. I think the paper would benefit from being clearer about the role of the distributional analysis of lifetime gains (Section 4). I found that interesting and useful, but my feeling is that the current draft isn't very clear about its value added relative to the correlation tests and the welfare analysis.
+
+Smaller comments
+
+4. I agree that optimization failures that lead people to be less likely to take-up than is privately optimal imply smaller ordeal costs than the rational model. But optimization failures that lead people to be more likely to take up than is privately-optimal (as in Chan 2017, for example) could imply larger ordeal costs than the rational model. I'm not sure if there's anything very compelling you could do on this, but it seems worth at least raising as a possibility.
+
+5. Page 1: I wasn't sure what you mean by "economists lack a way to connect empirical estimates of self-targeting to theory."
+
+6. It seems worth a brief explanation of why you focus on these eight programs. It sounds like it's mainly because those are what's available in the PSID, which is fine, but it's worth explaining what that captures vs. leaves out.
+
+7. Page 31 on the calibration says that you take the value of the transfer from the PSID. What about for in-kind transfers? It seems best to use estimates of the value of those transfers to households rather than of the cost to the government.
+
+8. Page 35: I believe the following should read, "[...] automating transfers is likely to be desirable only when people care *less* about consumption ﬂuctuations [...]"
+
+9. Appendix Figure A8: This figure would be more useful if the data labels did not overlap so much.
+
+I congratulate the authors on a very nice paper.
+
+References
+
+Chan, Marc K. "Welfare dependence and self-control: An empirical analysis." The Review of Economic Studies 84, no. 4 (2017): 1379-1423.
+
+Hendren, Nathaniel, and Ben Sprung-Keyser. "A unified welfare analysis of government policies." The Quarterly Journal of Economics 135, no. 3 (2020): 1209-1318.

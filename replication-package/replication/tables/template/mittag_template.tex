@@ -1,0 +1,25 @@
+\begin{table}[t!]
+    \centering
+    \caption{Selection into Transfers, Adjusted for Misreporting of Transfer Receipt}
+    \label{tab:mittag}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcccc}
+      \toprule
+                  & \multicolumn{2}{c}{Baseline}                                          & \multicolumn{2}{c}{Adjusted for Misreporting}                             \\ \cmidrule{2-3}\cmidrule{4-5}
+                  & Consumption                     & Lifetime Income                     & Consumption                       & Lifetime Income                       \\
+                  & (1)                             & (2)                                 & (3)                               & (4)                                   \\ \midrule \addlinespace
+\multicolumn{5}{@{}l}{\emph{Panel A: PSID}}                                                                                                                                    \\ \addlinespace
+SNAP & $$base_snap_cons_starbeta$$     & $$base_snap_lifetime_starbeta$$     & $$mittag_snap_cons_starbeta$$     & $$mittag_snap_lifetime_starbeta$$     \\
+                  & ($$base_snap_cons_se$$)           & ($$base_snap_lifetime_se$$)           & ($$mittag_snap_cons_se$$)           & ($$mittag_snap_lifetime_se$$)           \\ \addlinespace
+Medicaid & $$base_medicaid_cons_starbeta$$ & $$base_medicaid_lifetime_starbeta$$ & $$mittag_medicaid_cons_starbeta$$ & $$mittag_medicaid_lifetime_starbeta$$ \\
+                  & ($$base_medicaid_cons_se$$)       & ($$base_medicaid_lifetime_se$$)       & ($$mittag_medicaid_cons_se$$)       & ($$mittag_medicaid_lifetime_se$$) \\ \addlinespace \midrule \addlinespace
+                  \multicolumn{5}{@{}l}{\emph{Panel B: CEX}}                                                                                                                                                    \\ \addlinespace
+SNAP & $$base_snap_cons_cex_starbeta$$     &   & $$mittag_snap_cons_cex_starbeta$$     &    \\
+                  & ($$base_snap_cons_cex_se$$)           &       & ($$mittag_snap_cons_cex_se$$)           &        \\ \addlinespace
+Medicaid & $$base_medicaid_cons_cex_starbeta$$ &  & $$mittag_medicaid_cons_cex_starbeta$$ & \\
+                  & ($$base_medicaid_cons_cex_se$$)       &    & ($$mittag_medicaid_cons_cex_se$$)       &   \\ \addlinespace \bottomrule                    \end{tabular*}
+                \begin{spacing}{1}
+                    \begin{tablenotes}
+                          \item \footnotesize \textit{Notes:} This table examines the effect of corrections for misreporting of transfer receipt on estimates of selection into transfers by consumption rank and lifetime-income rank, conditional on current-income rank. The estimating equation is Equation \ref{eq:regression}. Panel A presents PSID results, and Panel B presents CEX results. Columns 1 and 2 reproduce our baseline estimates. In Columns 3 and 4, we replace reported receipt with the adjusted measures from \citetappendix{mittag2019correcting} for SNAP and \citetappendix{davern2019creating} for Medicaid. All specifications control flexibly for current-income rank using cubic basis splines.  Standard errors are clustered by household. $\sym{*} = p < 0.10$, $\sym{**} = p < 0.05$, $\sym{***} = p < 0.01$.
+                          \end{tablenotes}
+                           \end{spacing}
+                    \end{table}                

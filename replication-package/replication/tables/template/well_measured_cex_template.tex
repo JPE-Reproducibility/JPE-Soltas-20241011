@@ -1,0 +1,31 @@
+\begin{table}[t!]
+    \centering
+    \caption{Well-Measured Consumption and Transfer Receipt (CEX)}
+    \label{tab:well_measured_cex}
+    \begin{tabular*}{1.36\textwidth}{@{\extracolsep{\fill}}lccccc}
+        \toprule \addlinespace
+                                               & SNAP                                    & Medicaid                                 & \shortstack{Housing  \\ Assistance}                 & TANF                                 & SSI                                                 \\
+                                               & (1)                                     & (2)                                      & (3)                                & (4)                                  & (5)                                                 \\ \addlinespace \midrule \addlinespace
+\multicolumn{6}{@{}l}{\emph{Panel A:   Rent and Owner's Equivalent Rent}  }                                 \\  \addlinespace
+Receives Transfer                              & $$oer_snap_starbeta$$             & $$oer_medicaid_starbeta$$          & $$oer_housing_assistance_starbeta$$          & $$oer_tanf_starbeta$$          & $$oer_ssi_starbeta$$           \\
+                                               & ($$oer_snap_se$$)                   & ($$oer_medicaid_se$$)                & ($$oer_housing_assistance_se$$)                & ($$oer_tanf_se$$)                & ($$oer_ssi_se$$)               \\  \addlinespace
+\multicolumn{6}{@{}l}{\emph{Panel B:   Vehicle Lease Cost and Equivalent Lease Cost}  }      \\  \addlinespace
+Receives Transfer                              & $$lease_cost_pred_snap_starbeta$$    & $$lease_cost_pred_medicaid_starbeta$$ & $$lease_cost_pred_housing_assistance_starbeta$$ & $$lease_cost_pred_tanf_starbeta$$ & $$lease_cost_pred_ssi_starbeta$$   \\
+                                               & ($$lease_cost_pred_snap_se$$)          & ($$lease_cost_pred_medicaid_se$$)       & ($$lease_cost_pred_housing_assistance_se$$)       & ($$lease_cost_pred_tanf_se$$)       & ($$lease_cost_pred_ssi_se$$)      \\  \addlinespace
+\multicolumn{6}{@{}l}{\emph{Panel C:   Food at Home Expenditure}  }               \\  \addlinespace
+Receives Transfer                              & $$food_at_home_snap_starbeta$$      & $$food_at_home_medicaid_starbeta$$   & $$food_at_home_housing_assistance_starbeta$$   & $$food_at_home_tanf_starbeta$$   & $$food_at_home_ssi_starbeta$$    \\
+                                               & ($$food_at_home_snap_se$$)            & ($$food_at_home_medicaid_se$$)         & ($$food_at_home_housing_assistance_se$$)         & ($$food_at_home_tanf_se$$)         & ($$food_at_home_ssi_se$$)         \\  \addlinespace
+\multicolumn{6}{@{}l}{\emph{Panel D: Utility Expenditure} }      \\  \addlinespace
+Receives Transfer                              & $$utility_exp_snap_starbeta$$         & $$utility_exp_medicaid_starbeta$$      & $$utility_exp_housing_assistance_starbeta$$      & $$utility_exp_tanf_starbeta$$      & $$utility_exp_ssi_starbeta$$     \\
+                                               & ($$utility_exp_snap_se$$)               & ($$utility_exp_medicaid_se$$)            & ($$utility_exp_housing_assistance_se$$)            & ($$utility_exp_tanf_se$$)            & ($$utility_exp_ssi_se$$)             \\  \addlinespace
+\multicolumn{6}{@{}l}{\emph{Panel E: Gasoline Expenditure}}         \\  \addlinespace
+Receives Transfer                              & $$gasoline_snap_starbeta$$        & $$gasoline_medicaid_starbeta$$     & $$gasoline_housing_assistance_starbeta$$     & $$gasoline_tanf_starbeta$$     & $$gasoline_ssi_starbeta$$       \\
+                                               & ($$gasoline_snap_se$$)              & ($$gasoline_medicaid_se$$)           & ($$gasoline_housing_assistance_se$$)           & ($$gasoline_tanf_se$$)           & ($$gasoline_ssi_se$$)         \\  \addlinespace 
+                                               \bottomrule
+                                            \end{tabular*}
+                                            \begin{spacing}{1}
+                                                \begin{tablenotes}
+                                                      \item \footnotesize \textit{Notes:} This table reports estimates of the predictive effect of transfer receipt on (log) levels of reported consumption, conditional on current-income rank and being simulated-eligible for the transfer. The data source is the Consumer Expenditure Survey, covering the years 1997 through 2019 for all outcomes. Each panel row is for a different consumption outcome, and each column is for a different transfer. The year ranges in parentheses indicate data coverage for the outcome of interest. All specifications control flexibly for current-income rank using cubic basis splines. Standard errors are clustered by household. $\sym{*} = p < 0.10$, $\sym{**} = p < 0.05$, $\sym{***} = p < 0.01$.
+                                                      \end{tablenotes}
+                                                       \end{spacing}
+                                                \end{table}

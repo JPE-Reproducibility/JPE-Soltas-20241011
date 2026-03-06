@@ -1,0 +1,34 @@
+\begin{table}[ht!]
+  \centering
+  \caption{Simulated Eligibility and Receipt Rates}
+  \label{tab:welfare_slope}\small
+  \begin{tabular*}{1.36\textwidth}{@{\extracolsep{\fill}}lcccc@{}}
+  \toprule
+\addlinespace 
+& P(Receive $|$ Simulated Eligible) & P(Receive $|$ Not Sim. Elig.) &
+P(Sim. Elig. $|$ Receive) & P(Sim. Elig. $|$ Not Receive) \\ 
+Program   & (1) & (2) & (3) & (4) \\ \addlinespace
+\hline \addlinespace
+Housing Assistance & $$p_r_e_ha$$ & $$p_r_ne_ha$$ & $$p_e_r_ha$$
+& $$p_e_nr_ha$$ \\
+LIHEAP & $$p_r_e_liheap$$ & $$p_r_ne_liheap$$ & $$p_e_r_liheap$$
+& $$p_e_nr_liheap$$ \\ 
+Medicaid & $$p_r_e_medicaid$$ & $$p_r_ne_medicaid$$ & $$p_e_r_medicaid$$
+& $$p_e_nr_medicaid$$ \\ 
+SNAP & $$p_r_e_snap$$ & $$p_r_ne_snap$$ & $$p_e_r_snap$$
+& $$p_e_nr_snap$$ \\
+SSI & $$p_r_e_ssi$$ & $$p_r_ne_ssi$$ & $$p_e_r_ssi$$
+& $$p_e_nr_ssi$$ \\ 
+TANF & $$p_r_e_tanf$$ & $$p_r_ne_tanf$$ & $$p_e_r_tanf$$
+& $$p_e_nr_tanf$$ \\
+School Meals & $$p_r_e_schoolmeals$$ & $$p_r_ne_schoolmeals$$ & $$p_e_r_schoolmeals$$
+& $$p_e_nr_schoolmeals$$ \\ 
+WIC & $$p_r_e_wic$$ & $$p_r_ne_wic$$ & $$p_e_r_wic$$
+& $$p_e_nr_wic$$ \\   \addlinespace \bottomrule
+\end{tabular*}
+\begin{spacing}{1}
+\begin{tablenotes}
+\item \footnotesize \textit{Notes:} his table reports conditional receipt and eligibility rates by program, using simulated eligibility measures constructed from observed household characteristics. For each program, we estimate the share of recipients who are eligible, the share of non-recipients who are eligible, the share of eligibles who receive the transfer, and the share of non-eligibles who do. Estimates are based on weighted linear regressions with no covariates. See Appendix\ref{appendix:data} for details on the construction of simulated eligibility.
+\end{tablenotes}
+\end{spacing}
+\end{table}

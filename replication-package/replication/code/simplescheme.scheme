@@ -1,0 +1,58 @@
+#include s2color
+
+color heading                   black 
+color subheading                black 
+
+linestyle  legend               none
+linestyle  plotregion		none
+
+anglestyle vertical_tick 	horizontal
+color background                white
+axisstyle vertical_default      vertical_nogrid 
+axisstyle horizontal_default    horizontal_nogrid 
+
+numticks_g vertical_major       3
+linewidth tickline              vvthin 
+numstyle legend_cols            1
+
+color p1                        black
+symbol p1                       circle_hollow 
+linepattern p1line              solid 
+color       p1line              black 
+
+color p2                        gray
+symbol p2                       square
+linepattern p2line              dash 
+color p2line                    gray 
+
+color p3                        blue 
+symbol p3                       smx 
+linepattern p3line              dash_dot 
+symbolsize p3                   vlarge
+color p3line                    blue 
+
+color p4                        green
+symbol p4                       diamond 
+linepattern p4line              "_.-"
+color p4line                    green
+
+color p1area                    gs14
+color p2area                    black 
+color p1arealine                gs14 
+color p2arealine                black 
+
+color xyline                    red 
+linewidth xyline                vthin 
+
+color p1lineplot                gray
+linepattern p1lineplot          solid 
+
+color p2lineplot                black
+linepattern p2lineplot          dash 
+
+color p3lineplot                blue
+linepattern p3lineplot          dash_dot
+
+color p4lineplot                green
+linepattern p4lineplot          "_.-" 
+

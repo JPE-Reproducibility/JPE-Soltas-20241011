@@ -1,0 +1,23 @@
+\begin{table}[]
+    \centering
+     \caption{Food Insecurity and SNAP Receipt (PSID)}
+    \label{tab:snap_by_month}
+\begin{tabular*}{1.36\textwidth}{@{\extracolsep{\fill}}lcccccccc}
+\toprule
+                       & \multicolumn{4}{c}{All}                                                                   & \multicolumn{4}{c}{Simulated Eligible}                                                    \\ \cmidrule{2-5}\cmidrule{6-9}
+                       & (1)                  & (2)                  & (3)                  & (4)                  & (5)                  & (6)                  & (7)                  & (8)                  \\ \midrule \addlinespace
+Received SNAP in Year  & $$snap01_starbeta$$ &                      &                      &                      & $$snap11_starbeta$$ &                      &                      &                      \\
+                       & ($$snap01_se$$)     &                      &                      &                      & ($$snap11_se$$)     &                      &                      &                      \\
+Share of Year on SNAP  &                      & $$snap02_starbeta$$ &                      &                      &                      & $$snap12_starbeta$$ &                      &                      \\
+                       &                      & ($$snap02_se$$)     &                      &                      &                      & ($$snap12_se$$)     &                      &                      \\
+Received SNAP in Month &                      &                      & $$snap03_starbeta$$ & $$snap04_starbeta$$ &                      &                      & $$snap13_starbeta$$ & $$snap14_starbeta$$ \\
+                       &                      &                      & ($$snap03_se$$)     & ($$snap04_se$$)     &                      &                      & ($$snap13_se$$)     & ($$snap14_se$$)     \\ \addlinespace \midrule
+                       Current-Income Spline  & Y                    & Y                    & Y                    & Y                    & Y                    & Y                    & Y                    & Y     \\
+                       Year-Month FE          & Y                    & Y                    & Y                    & Y                    & Y                    & Y                    & Y                    & Y                    \\
+Person-Year FE         & N                    & N                    & N                    & Y                    & N                    & N                    & N                    & Y                      \\ \bottomrule
+        \end{tabular*}
+        \begin{spacing}{1}
+            \begin{tablenotes}
+                  \item \footnotesize \textit{Notes:} This table reports estimates of the predictive effect of transfer receipt on a monthly measure of food insecurity, conditional on current-income rank. The dependent variable is a binary indicator for whether the household reported ``difficulty in getting enough food to eat in your household'' in a given month. Columns 1--4 are estimated on the full sample, whereas Columns 5--8 limit the sample to people that appear SNAP-eligible. Columns 1 and 5 compare food insecurity among SNAP recipients (people who received any SNAP transfer over the last year) to all and simulated-eligible non-recipients. Columns 2 and 6 change the definition of transfer receipt to the share of months in the year on SNAP. Columns 3 and 7 change the data frequency to monthly. Columns 4 and 8 then include for person--year fixed effects. All specifications include month--year fixed effects. Standard errors are clusterd by household. $\sym{*} = p < 0.10$, $\sym{**} = p < 0.05$, $\sym{***} = p < 0.01$.   \end{tablenotes}
+           \end{spacing}
+\end{table}

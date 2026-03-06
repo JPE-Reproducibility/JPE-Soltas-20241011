@@ -1,0 +1,38 @@
+\begin{table}[]     \footnotesize     \centering
+\caption{Sensitivity of Self-Targeting on Consumption to Income Mismeasurement (CEX)}
+\label{tab:constrained_reg_c}
+\begin{tabular*}{1.36\textwidth}{@{\extracolsep{\fill}}lccccccccc}
+\toprule
+                   & (1)                               & (2)                               & (3)                             & (4)                             & (5)                             & (6)                             & (7)                             & (8)                             & (9) \\
+                   & \multicolumn{2}{c}{Unconstrained} & \multicolumn{7}{c}{Rank--Rank Slope Constrained to:} \\
+\cmidrule{2-3}\cmidrule{4-10}
+                   & Self-Targeting ($\beta$)          & Rank--Rank Slope ($\gamma$)       & 0.5                             & 0.6                             & 0.7                             & 0.8                             & 0.9                             & 1                               & Preferred \\
+\midrule
+\addlinespace
+SNAP               & $$snap_c_unc_starbeta$$        & $$snap_c_rr_starbeta$$        & $$snap_c_1_starbeta$$        & $$snap_c_2_starbeta$$        & $$snap_c_3_starbeta$$        & $$snap_c_4_starbeta$$        & $$snap_c_5_starbeta$$        & $$snap_c_6_starbeta$$        & $$snap_c_preferred_starbeta$$ \\
+                   & ($$snap_c_unc_se$$)            & ($$snap_c_rr_se$$)            & ($$snap_c_1_se$$)            & ($$snap_c_2_se$$)            & ($$snap_c_3_se$$)            & ($$snap_c_4_se$$)            & ($$snap_c_5_se$$)            & ($$snap_c_6_se$$)            & ($$snap_c_preferred_se$$)     \\
+\addlinespace
+Medicaid           & $$medicaid_c_unc_starbeta$$    & $$medicaid_c_rr_starbeta$$    & $$medicaid_c_1_starbeta$$    & $$medicaid_c_2_starbeta$$    & $$medicaid_c_3_starbeta$$    & $$medicaid_c_4_starbeta$$    & $$medicaid_c_5_starbeta$$    & $$medicaid_c_6_starbeta$$    & $$medicaid_c_preferred_starbeta$$ \\
+                   & ($$medicaid_c_unc_se$$)        & ($$medicaid_c_rr_se$$)        & ($$medicaid_c_1_se$$)        & ($$medicaid_c_2_se$$)        & ($$medicaid_c_3_se$$)        & ($$medicaid_c_4_se$$)        & ($$medicaid_c_5_se$$)        & ($$medicaid_c_6_se$$)        & ($$medicaid_c_preferred_se$$)     \\
+\addlinespace
+Housing Assistance & $$ha_c_unc_starbeta$$          & $$ha_c_rr_starbeta$$          & $$ha_c_1_starbeta$$          & $$ha_c_2_starbeta$$          & $$ha_c_3_starbeta$$          & $$ha_c_4_starbeta$$          & $$ha_c_5_starbeta$$          & $$ha_c_6_starbeta$$          & $$ha_c_preferred_starbeta$$ \\
+                   & ($$ha_c_unc_se$$)              & ($$ha_c_rr_se$$)              & ($$ha_c_1_se$$)              & ($$ha_c_2_se$$)              & ($$ha_c_3_se$$)              & ($$ha_c_4_se$$)              & ($$ha_c_5_se$$)              & ($$ha_c_6_se$$)              & ($$ha_c_preferred_se$$)     \\
+\addlinespace
+TANF               & $$tanf_c_unc_starbeta$$        & $$tanf_c_rr_starbeta$$        & $$tanf_c_1_starbeta$$        & $$tanf_c_2_starbeta$$        & $$tanf_c_3_starbeta$$        & $$tanf_c_4_starbeta$$        & $$tanf_c_5_starbeta$$        & $$tanf_c_6_starbeta$$        & $$tanf_c_preferred_starbeta$$ \\
+                   & ($$tanf_c_unc_se$$)            & ($$tanf_c_rr_se$$)            & ($$tanf_c_1_se$$)            & ($$tanf_c_2_se$$)            & ($$tanf_c_3_se$$)            & ($$tanf_c_4_se$$)            & ($$tanf_c_5_se$$)            & ($$tanf_c_6_se$$)            & ($$tanf_c_preferred_se$$)     \\
+\addlinespace
+SSI                & $$ssi_c_unc_starbeta$$         & $$ssi_c_rr_starbeta$$         & $$ssi_c_1_starbeta$$         & $$ssi_c_2_starbeta$$         & $$ssi_c_3_starbeta$$         & $$ssi_c_4_starbeta$$         & $$ssi_c_5_starbeta$$         & $$ssi_c_6_starbeta$$         & $$ssi_c_preferred_starbeta$$ \\
+                   & ($$ssi_c_unc_se$$)             & ($$ssi_c_rr_se$$)             & ($$ssi_c_1_se$$)             & ($$ssi_c_2_se$$)             & ($$ssi_c_3_se$$)             & ($$ssi_c_4_se$$)             & ($$ssi_c_5_se$$)             & ($$ssi_c_6_se$$)             & ($$ssi_c_preferred_se$$)     \\
+\addlinespace
+\bottomrule 
+\end{tabular*}
+\begin{spacing}{1}
+    \begin{tablenotes}
+          \item \footnotesize \textit{Notes:} This table reports estimates of the predictive effect of transfer receipt on lifetime-income rank, conditional on current-income rank. We use here the following linear specification: $\bar{R}_{it} =\beta D_{it} + \gamma R_{it} + u_{it}$, where $\bar{R}_{it}$ is consumption, $D_{it}$ is transfer receipt, and $R_{it}$ is current-income rank. Columns 1 and 2 respectively report the estimated coefficients on receipt and current-income rank. Columns 3--9
+  restrict $\gamma$ to assess the
+  sensitivity of $\beta$ to income mismeasurement. The Preferred value
+  comes from restricting the reliability ratio to 0.7, based on \citet{abowd2013estimating}. We then
+  constrain the coefficient on income to the unconstrained regression,
+  divided by 0.7. The Preferred coefficient is capped at 1.  Standard errors are clustered by household.  $\sym{*} = p < 0.10$, $\sym{**} = p < 0.05$, $\sym{***} = p < 0.01$.       \end{tablenotes}
+           \end{spacing}
+\end{table}

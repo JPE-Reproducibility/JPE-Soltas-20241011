@@ -1,0 +1,32 @@
+\begin{table}[h!]
+    \centering\small
+    \caption{Dollars and Percentage Differences Between Recipients and Similar-Income Non-Recipients}
+    \label{tab:levels_outcomes}
+\begin{tabular*}{1.36\textwidth}{@{\extracolsep{\fill}}lcccccc}
+    \toprule
+                   & \multicolumn{3}{c}{Proportion Difference}                       & \multicolumn{3}{c}{Difference in  2020 Constant Dollars}\\ \cmidrule{2-4}\cmidrule{5-7}
+                   & Cons.\ (PSID)      & Cons.\ (CEX)                 & Lifetime Inc.\  (PSID)                & Cons.\ (PSID)           & Cons.\ (CEX)                              & Lifetime Inc.\ (PSID)                                   \\
+                   & (1)                          & (2)                              & (3)                                            & (4)                     & (5)                     & (6)                                                     \\ \midrule  \addlinespace
+SNAP               & $$ldiff_snap_cons_starbeta$$   & $$ldiff_snap_cex_starbeta$$    & $$ldiff_snap_lifetime_starbeta$$     & $$diff_snap_cons_starbeta$$          & $$diff_snap_cex_starbeta$$                     & $$diff_snap_lifetime_starbeta$$                       \\
+                   & ($$ldiff_snap_cons_se$$)   & ($$ldiff_snap_cex_se$$)    & ($$ldiff_snap_lifetime_se$$)     & ($$diff_snap_cons_se$$)         & ($$diff_snap_cex_se$$)                        & ($$diff_snap_lifetime_se$$)                       \\ \addlinespace
+Medicaid           & $$ldiff_medicaid_cons_starbeta$$ & $$ldiff_medicaid_cex_starbeta$$ & $$ldiff_medicaid_lifetime_starbeta$$ & $$diff_medicaid_cons_starbeta$$     & $$diff_medicaid_cex_starbeta$$                   & $$diff_medicaid_lifetime_starbeta$$                   \\
+                   & ($$ldiff_medicaid_cons_se$$)  & ($$ldiff_medicaid_cex_se$$) & ($$ldiff_medicaid_lifetime_se$$) & ($$diff_medicaid_cons_se$$)     & ($$diff_medicaid_cex_se$$)                    & ($$diff_medicaid_lifetime_se$$)                   \\  \addlinespace
+Housing Assistance & $$ldiff_ha_cons_starbeta$$    & $$ldiff_ha_cex_starbeta$$       & $$ldiff_ha_lifetime_starbeta$$       & $$diff_ha_cons_starbeta$$        & $$diff_ha_cex_starbeta$$                        & $$diff_ha_lifetime_starbeta$$                         \\
+                   & ($$ldiff_ha_cons_se$$)    & ($$ldiff_ha_cex_se$$)     & ($$ldiff_ha_lifetime_se$$)       & ($$diff_ha_cons_se$$)         & ($$diff_ha_cex_se$$)                         & ($$diff_ha_lifetime_se$$)                         \\  \addlinespace
+TANF               & $$ldiff_tanf_cons_starbeta$$    & $$ldiff_tanf_cex_starbeta$$     & $$ldiff_tanf_lifetime_starbeta$$     & $$diff_tanf_cons_starbeta$$      & $$diff_tanf_cex_starbeta$$                    & $$diff_tanf_lifetime_starbeta$$                       \\
+                   & ($$ldiff_tanf_cons_se$$)   & ($$ldiff_tanf_cex_se$$)    & ($$ldiff_tanf_lifetime_se$$)     & ($$diff_tanf_cons_se$$)          & ($$diff_tanf_cex_se$$)                 & ($$diff_tanf_lifetime_se$$)                       \\  \addlinespace
+SSI                & $$ldiff_ssi_cons_starbeta$$    & $$ldiff_ssi_cex_starbeta$$     & $$ldiff_ssi_lifetime_starbeta$$      & $$diff_ssi_cons_starbeta$$     & $$diff_ssi_cex_starbeta$$                           & $$diff_ssi_lifetime_starbeta$$                        \\
+                   & ($$ldiff_ssi_cons_se$$)    & ($$ldiff_ssi_cex_se$$)      & ($$ldiff_ssi_lifetime_se$$)      & ($$diff_ssi_cons_se$$)        & ($$diff_ssi_cex_se$$)                   & ($$diff_ssi_lifetime_se$$)                        \\  \addlinespace
+School Meals                 & $$ldiff_schoolmeals_cons_starbeta$$   &    & $$ldiff_schoolmeals_lifetime_starbeta$$       & $$diff_schoolmeals_cons_starbeta$$          &                 & $$diff_schoolmeals_lifetime_starbeta$$                         \\
+                   & ($$ldiff_schoolmeals_cons_se$$)  &     & ($$ldiff_schoolmeals_lifetime_se$$)       & ($$diff_schoolmeals_cons_se$$)        &                  & ($$diff_schoolmeals_lifetime_se$$)                         \\  \addlinespace
+WIC                & $$ldiff_wic_cons_starbeta$$   &   & $$ldiff_wic_lifetime_starbeta$$      & $$diff_wic_cons_starbeta$$           &                    & $$diff_wic_lifetime_starbeta$$                        \\
+                   & ($$ldiff_wic_cons_se$$)    &  & ($$ldiff_wic_lifetime_se$$)      & ($$diff_wic_cons_se$$)               &                & ($$diff_wic_lifetime_se$$)                        \\   \addlinespace
+LIHEAP             & $$ldiff_liheap_cons_starbeta$$ &  & $$ldiff_liheap_lifetime_starbeta$$   & $$diff_liheap_cons_starbeta$$             &               & $$diff_liheap_lifetime_starbeta$$                     \\
+                   & ($$ldiff_liheap_cons_se$$) &  & ($$ldiff_liheap_lifetime_se$$)   & ($$diff_liheap_cons_se$$)                 &           & ($$diff_liheap_lifetime_se$$)                 \\ \addlinespace \bottomrule   
+                \end{tabular*}
+                \begin{spacing}{1}
+                    \begin{tablenotes}
+                          \item \footnotesize \textit{Notes:} This table reports estimates of differences in consumption and lifetime income between transfer receipients and nonrecipients, conditional on current income. All columns report estimates obtained via Poisson regression. Columns 1 and 2 report exponentiated coefficients ($\exp(\beta)-1$) from these regressions. Columns 3 and 4 report the dollar effects. Each cell is its own regression. All specifications control flexibly for the logarithm of equivalized current household income using cubic basis splines. Standard errors are clustered by household. $\sym{*} = p < 0.10$, $\sym{**} = p < 0.05$, $\sym{***} = p < 0.01$.
+                          \end{tablenotes}
+                           \end{spacing}
+                    \end{table}

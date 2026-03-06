@@ -1,0 +1,30 @@
+\begin{table}[t!]
+    \centering
+    \caption{Durable-Goods Ownership and Transfer Receipt: Consumer Expenditure Survey}
+    \label{tab:durable_goods_cex}
+    \begin{tabular*}{1.36\textwidth}{@{\extracolsep{\fill}}lccccc}
+        \toprule \addlinespace
+        & SNAP                                    & Medicaid                                 & \shortstack{Housing  \\ Assistance}                 & TANF                                 & SSI                                                          \\
+        & (1)                                     & (2)                                      & (3)                                & (4)                                  & (5)                                                            \\ \addlinespace \midrule \addlinespace
+\multicolumn{9}{@{}l}{\emph{Panel A: HH Owns   Primary Residence  }  }                                                                                                                                                                                                   \\ \addlinespace
+Receives Transfer & $$owns_home_snap_starbeta$$    & $$owns_home_medicaid_starbeta$$    & $$owns_home_housing_assistance_starbeta$$    & $$owns_home_tanf_starbeta$$    & $$owns_home_ssi_starbeta$$      \\
+                  & ($$owns_home_snap_se$$)          & ($$owns_home_medicaid_se$$)          & ($$owns_home_housing_assistance_se$$)          & ($$owns_home_tanf_se$$)          & ($$owns_home_ssi_se$$)                 \\ \addlinespace
+\multicolumn{9}{@{}l}{\emph{Panel B: Number of   Rooms in Home  } }                                                                                                                                                                                                      \\ \addlinespace
+Receives Transfer & $$rooms_snap_starbeta$$      & $$rooms_medicaid_starbeta$$      & $$rooms_housing_assistance_starbeta$$      & $$rooms_tanf_starbeta$$      & $$rooms_ssi_starbeta$$        \\
+                  & ($$rooms_snap_se$$)            & ($$rooms_medicaid_se$$)            & ($$rooms_housing_assistance_se$$)            & ($$rooms_tanf_se$$)            & ($$rooms_ssi_se$$)                  \\ \addlinespace
+\multicolumn{9}{@{}l}{\emph{Panel C: Central Air   Conditioning at Home  }  }                                                                                                                                                                                            \\ \addlinespace
+Receives Transfer & $$central_ac_snap_starbeta$$    & $$central_ac_medicaid_starbeta$$    & $$central_ac_housing_assistance_starbeta$$    & $$central_ac_tanf_starbeta$$    & $$central_ac_ssi_starbeta$$ \\
+                  & ($$central_ac_snap_se$$)          & ($$central_ac_medicaid_se$$)          & ($$central_ac_housing_assistance_se$$)          & ($$central_ac_tanf_se$$)          & ($$central_ac_ssi_se$$)          \\ \addlinespace
+\multicolumn{9}{@{}l}{\emph{Panel D: HH Owns a   Car}   }                                                                                                                                                                                                              \\ \addlinespace
+Receives Transfer & $$owns_car_snap_starbeta$$     & $$owns_car_medicaid_starbeta$$     & $$owns_car_housing_assistance_starbeta$$     & $$owns_car_tanf_starbeta$$     & $$owns_car_ssi_starbeta$$   \\
+                  & ($$owns_car_snap_se$$)           & ($$owns_car_medicaid_se$$)           & ($$owns_car_housing_assistance_se$$)           & ($$owns_car_tanf_se$$)           & ($$owns_car_ssi_se$$)        \\ \addlinespace
+\multicolumn{9}{@{}l}{\emph{Panel D: HH Owns a   Computer}  }                                                                                                                                                                                                          \\ \addlinespace
+Receives Transfer & $$computer_snap_starbeta$$   & $$computer_medicaid_starbeta$$   & $$computer_housing_assistance_starbeta$$   & $$computer_tanf_starbeta$$   & $$computer_ssi_starbeta$$    \\
+                  & ($$computer_snap_se$$)         & ($$computer_medicaid_se$$)         & ($$computer_housing_assistance_se$$)         & ($$computer_tanf_se$$)         & ($$computer_ssi_se$$)        \\ \addlinespace \bottomrule
+\end{tabular*}
+\begin{spacing}{1}
+    \begin{tablenotes}
+          \item \footnotesize \textit{Notes:} This table reports estimates of the predictive effect of transfer receipt on measures of household durable-goods ownership, conditional on current-income rank and being simulated-eligible for the transfer. The data source is the Consumer Expenditure Survey, covering the years 1997 through 2019 for all outcomes. Each panel row is for a different consumption outcome, and each column is for a different transfer. The year ranges in parentheses indicate data coverage for the outcome of interest. All specifications control flexibly for current-income rank using cubic basis splines. Standard errors are clustered by household. $\sym{*} = p < 0.10$, $\sym{**} = p < 0.05$, $\sym{***} = p < 0.01$.
+          \end{tablenotes}
+           \end{spacing}
+    \end{table}

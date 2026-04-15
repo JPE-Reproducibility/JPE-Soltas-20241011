@@ -1505,6 +1505,7 @@ label variable rent "Annualized rent expenditure"
 
 * Save resulting dataset
 
+	sort id year
 	save "$dir/data/psid_int.dta", replace
 	
 	

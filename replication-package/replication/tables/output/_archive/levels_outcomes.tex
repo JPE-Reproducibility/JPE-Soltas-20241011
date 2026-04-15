@@ -1,0 +1,32 @@
+\begin{table}[h!]
+    \centering\small
+    \caption{Dollars and Percentage Differences Between Recipients and Similar-Income Non-Recipients}
+    \label{tab:levels_outcomes}
+\begin{tabular*}{1.36\textwidth}{@{\extracolsep{\fill}}lcccccc}
+    \toprule
+                   & \multicolumn{3}{c}{Proportion Difference}                       & \multicolumn{3}{c}{Difference in  2020 Constant Dollars}\\ \cmidrule{2-4}\cmidrule{5-7}
+                   & Cons.\ (PSID)      & Cons.\ (CEX)                 & Lifetime Inc.\  (PSID)                & Cons.\ (PSID)           & Cons.\ (CEX)                              & Lifetime Inc.\ (PSID)                                   \\
+                   & (1)                          & (2)                              & (3)                                            & (4)                     & (5)                     & (6)                                                     \\ \midrule  \addlinespace
+SNAP               & -0.551***   & -0.497***    & -0.898***     & -8,291***          & -11,607***                     & -17,854***                       \\
+                   & (0.039)   & (0.013)    & (0.159)     & (641)         & (326)                        & (4,116)                       \\ \addlinespace
+Medicaid           & -0.492*** & -0.485*** & -0.777*** & -6,637***     & -11,849***                   & -15,017***                   \\
+                   & (0.044)  & (0.021) & (0.109) & (669)     & (558)                    & (2,592)                   \\  \addlinespace
+Housing Assistance & -0.451***    & -0.479***       & -0.458**       & -7,476***        & -15,876***                        & -14,221**                         \\
+                   & (0.035)    & (0.016)     & (0.199)       & (618)         & (530)                         & (6,159)                         \\  \addlinespace
+TANF               & -0.341***    & -0.434***     & -0.264     & -3,538***      & -10,102***                    & -5,507                       \\
+                   & (0.094)   & (0.027)    & (0.268)     & (975)          & (638)                 & (5,674)                       \\  \addlinespace
+SSI                & -0.003    & -0.247***     & -0.208      & -23     & -7,083***                           & -1,373                        \\
+                   & (0.079)    & (0.022)      & (0.241)      & (693)        & (637)                   & (1,549)                        \\  \addlinespace
+School Meals                 & -0.341***   &    & -0.325*       & -3,774***          &                 & -5,589*                         \\
+                   & (0.027)  &     & (0.171)       & (325)        &                  & (2,883)                         \\  \addlinespace
+WIC                & -0.239***   &   & -0.186*      & -2,564***           &                    & -4,447*                        \\
+                   & (0.026)    &  & (0.108)      & (297)               &                & (2,511)                        \\   \addlinespace
+LIHEAP             & -0.379*** &  & -0.449***   & -5,377***             &               & -8,523***                     \\
+                   & (0.037) &  & (0.148)   & (599)                 &           & (2,818)                 \\ \addlinespace \bottomrule   
+                \end{tabular*}
+                \begin{spacing}{1}
+                    \begin{tablenotes}
+                          \item \footnotesize \textit{Notes:} This table reports estimates of differences in consumption and lifetime income between transfer receipients and nonrecipients, conditional on current income. All columns report estimates obtained via Poisson regression. Columns 1 and 2 report exponentiated coefficients ($\exp(\beta)-1$) from these regressions. Columns 3 and 4 report the dollar effects. Each cell is its own regression. All specifications control flexibly for the logarithm of equivalized current household income using cubic basis splines. Standard errors are clustered by household. $\sym{*} = p < 0.10$, $\sym{**} = p < 0.05$, $\sym{***} = p < 0.01$.
+                          \end{tablenotes}
+                           \end{spacing}
+                    \end{table}

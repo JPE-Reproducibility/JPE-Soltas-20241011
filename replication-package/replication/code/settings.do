@@ -2,7 +2,7 @@ global imputation 0
 
 if "`c(username)'" == "esoltas" {
 	
-	global dir "~/Dropbox (MIT)/Research/TransferIncidence/replication/"
+	global dir "~/Princeton Dropbox/Evan Soltas/Research/Completed/TransferIncidence/replication/"
 	graph set window fontface default
 	do "$dir/code/stata-tex.do"
 	do "$dir/code/progs.do"
@@ -12,7 +12,7 @@ if "`c(username)'" == "esoltas" {
 	
 }
 
-if "`c(username)'" == "al705" {
+if "`c(username)'" == "al2705" {
 
    global dir "C:/Users/al2705/Princeton Dropbox/Allan Lee/TransferIncidence/replication"
    
@@ -37,4 +37,5 @@ do "$dir/code/eligsim/eligsim_wic.ado"
 do "$dir/code/eligsim/eligsim_housing_assistance.ado"
 do "$dir/code/eligsim/eligsim_tanf.ado"
 do "$dir/code/eligsim/eligsim_schoolmeals.ado"
+
  

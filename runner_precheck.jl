@@ -66,8 +66,8 @@ if downloaded_ok && isfile("package.zip")
         @info "Unzipping $pkg_zip..."
         try
             run(`unzip -oq $pkg_zip -d $dest_path`)
-            if isdir($dest_path)
-                rm_git($dest_path)
+            if isdir(dest_path)
+                rm_git(dest_path)
             end
         catch e
             @warn "unzip of $pkg_zip exited non-zero" exception=e

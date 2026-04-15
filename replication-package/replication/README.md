@@ -1,13 +1,13 @@
-# Self-Targeting in U.S. Transfer Programs
+# Data and Code for: Self-Targeting in U.S. Transfer Programs
 
 # Data download information
 - Please refer to replication tracker.
  
 ---
 contributors:
-  - Charlie Rafkin
-  - Adam Solomon
-  - Evan J. Soltas
+  - Charlie Rafkin (UC Berkeley)
+  - Adam Solomon (MIT)
+  - Evan J. Soltas (Princeton University)
 ---
 
 ## Overview
@@ -16,7 +16,11 @@ The code in this replication package constructs the analysis file from the liste
 
 ## Data Availability and Provenance Statements
 
-The paper uses data obtained from IPUMS (Ruggles et al, 2017). IPUMS-CPS does not currently provide the ability to store or reference custom extracts, but allows for redistribution for the purpose of replication. The archive contains the extracted data, codebook in the folder "data/cps".
+The paper uses Panel Study of Income Dynamics (PSID) data obtained from the UMich Survey Research Center. PSID data cannot, under their terms of use, be included in these replication files. The Survey Research Center instead allows them to be posted at ICPSR, which we have done here: https://doi.org/10.3886/ICPSR303531.V1. Users may also wish to download raw PSID data files here: https://simba.isr.umich.edu/data/data.aspx. 
+
+The paper also uses data obtained from IPUMS (Ruggles et al, 2017). IPUMS-CPS does not currently provide the ability to store or reference custom extracts, but allows for redistribution for the purpose of replication. The archive contains the extracted data, codebook in the folder "data/cps".
+
+We commit to preserving the data and code for a period of five years following the publication of the paper, including data files that we cannot make publicly available. We also commit to provide reasonable assistance to requests for clarification and replication.
 
 ### Statement about Rights
 
@@ -29,7 +33,7 @@ The paper uses data obtained from IPUMS (Ruggles et al, 2017). IPUMS-CPS does no
 - [X] Some data **cannot be made** publicly available.
 - [ ] **No data can be made** publicly available.
 
-Proprietary data used in analysis have been removed from the replication package. Please refer to cover letter for more detail.
+Proprietary data used in analysis have been removed from the replication package. 
 
 ## Dataset list
 
@@ -38,10 +42,10 @@ Proprietary data used in analysis have been removed from the replication package
 ## Computational requirements
 
 ### Software Requirements
-- [ ] The replication package contains one or more programs to install all dependencies and set up the necessary directory structure. [HIGHLY RECOMMENDED]
 
-- Stata (code was last run with version 19)
+- Stata (code was last run with version 19.5)
   - `bspline` (as of 2021-08-21)
+  - `ftools` (as of 2026-01-11)
   - `gtools` (as of 2022-12-05)
   - `ppmlhdfe` (as of 2023-09-07)
   - `statastates` (as of 2018-01-10)
@@ -50,37 +54,20 @@ Proprietary data used in analysis have been removed from the replication package
 
 ### Controlled Randomness
 
-- [X] Random seed is set at:
-  - Line 78 of code file `code/clean/psid/02_ebayes_lifetime_earnings`
+- Random seed is set at:
+  - Line 78-79 of code file `code/clean/psid/02_ebayes_lifetime_earnings`
   - Line 31-32 of code file `code/analyze/fig_A32`
-  - Line 44-45 of code file `code/analyze/03_merge_psid_reshape_lifetime_earnings`
-- [ ] No Pseudo random generator is used in the analysis described here.
+  - Line 44-45 of code file `code/clean/psid/03_merge_psid_reshape_lifetime_earnings`
 
 ### Memory, Runtime, Storage Requirements
 
 #### Summary
 
-Approximate time needed to reproduce the analyses on a standard (CURRENT YEAR) desktop machine:
-
-- [ ] <10 minutes
-- [ ] 10-60 minutes
-- [ ] 1-2 hours
-- [ ] 2-8 hours
-- [ ] 8-24 hours
-- [ ] 1-3 days
-- [ ] 3-14 days
-- [ ] > 14 days
+Approximate time needed to reproduce the analyses on a standard 2025 desktop machine:
+- 8-24 hours
 
 Approximate storage space needed:
-
-- [ ] < 25 MBytes
-- [ ] 25 MB - 250 MB
-- [ ] 250 MB - 2 GB
-- [ ] 2 GB - 25 GB
-- [ ] 25 GB - 250 GB
-- [ ] > 250 GB
-
-- [ ] Not feasible to run on a desktop machine, as described below.
+- 2 GB - 25 GB
 
 #### Details
 
@@ -107,44 +94,31 @@ The code was last run on a **Intel(R) Xeon(R) Gold 6146 CPU @ 3.20GHz 3.19 GHz (
 
 Please refer to the `replication tracker` for more details.
 
-
-| Figure/Table #    | Program                        | Line Number | Output file                                                        | Note                            |
-|-------------------|--------------------------------|-------------|--------------------------------------------------------------------|---------------------------------|
-| Table 1           | 02_analysis/table1.do          | 649         | summarystats.csv                                                   ||
-| Table 2           | 02_analysis/table2and3.do      | 15          | table2.csv                                                         ||
-| Table 3           | 02_analysis/table2and3.do      | 145         | table3.csv                                                         ||
-| Figure 1, Panel A | analyze/fig_1ab_A23ab_A28ab.do | 649         | figures/participation_reg.csv; figures/eligregs_appear_2_c_no3.pdf | Program generates other figures not included in the paper |
-| Figure 1, Panel B | analyze/fig_1ab_A23ab_A28ab.do | 591         | figures/participation_reg.csv; figures/eligregs_appear_2_eq_no.pdf | Program generates other figures not included in the paper |
-| Figure 1, Panel C | analyze/fig_1c.do              | 213            | figures/participation_reg_within.csv; figures/eligregs_between_within_lifetime.pdf ||
-| Figure 1, Panel D | analyze/fig_1d.do              | 206            | figures/participation_reg_mu.csv; figures/participation_reg_mu.pdf ||
-| Figure 2 	    | analyze/fig_2_A23d.do          | 210            | figures/participation_reg_cex.csv; figures/eligregs_psid_cex.pdf | Program generates other figures not included in the paper |
-| Appendix Figure 1 | analyze/fig_A1.do          | 136            | figures/participation_reg_ui_wc_ss.csv; figures/participation_reg_ui_wc_ss.pdf ||
-| Appendix Figure 2, Panel A | analyze/fig_A2ab.do          | 256            | figures/participation_reg_robustness11.csv; figures/eligregs_robustness_11_c.pdf ||
-| Appendix Figure 2, Panel B | analyze/fig_A2ab.do          | 256            | figures/participation_reg_robustness11.csv; figures/eligregs_robustness_11_li.pdf ||
-| Appendix Figure 3 | analyze/fig_A3.do          | 98           | figures/friedman_binscatter.pdf ||
-| Appendix Figure 4 | analyze/fig_A4.do          | 141         | fgiures/friedman_binscatter.pdf ||
-| Appendix Figure 5 | analyze/fig_A5.do          | 181          | figures/participation_reg_robustness8.csv; figures/eligregs_robustness_8_c.pdf||
-| Appendix Figure 6, Panel A | analyze/fig_A6ab.do          | 299            | figures/participation_reg_robustness11.csv; figures/eligregs_appear_2_c_no3hh.pdf ||
-| Appendix Figure 6, Panel B | analyze/fig_A6ab.do          | 283            | figures/participation_reg_hh.csv; figures/eligregs_appear_2_hh_nohh.pdf | Program generates other figures not included in the paper |
-| Appendix Figure 7, Panel A | analyze/fig_A7ab.do          | 226            | figures/participation_reg_robustness4.csv; figures/eligregs_robustness_4_c.pdf ||
-| Appendix Figure 7, Panel B | analyze/fig_A7ab.do          | 226            | figures/participation_reg_robustness4.csv; figures/eligregs_robustness_4_li.pdf ||
-| Appendix Figure 8 | analyze/fig_A8.do          | 231          | figures/participation_reg_robustness_rpp.csv; figures/participation_reg_robustness_rpp.pdf| Figure created will appear different than corresponding figure in the paper due to the removal of proprietary data |
-
 ## References
 
-David Autor and David Dorn. "The Growth of Low Skill Service Jobs and the Polarization of the U.S. Labor Market." American Economic Review, 103(5), 1553-1597, 2013.
+David Autor and David Dorn. "The Growth of Low Skill Service Jobs and the Polarization of the U.S. Labor Market." American Economic Review, 103(5), 1553-1597, 2013. [Crosswalks for occ1970_occ1990dd.dta, occ2000_occ1990dd.dta, and occ2010_occ1990dd.dta.]
 
-The Department of Housing and Urban Development. ""Prior HHS Poverty Guidelines and Federal Register References," 2025.
+Department of Housing and Urban Development. ""Prior HHS Poverty Guidelines and Federal Register References," 2025.
 
 Economic Research Service (ERS), U.S. Department of Agriculture (USDA). SNAP Distribution Schedule Database, SNAP Policy Data Sets.
 
+Jeroen Weesie, 1999. "MMERGE: Stata module: Safer and easier to use variant of merge," Statistical Software Components S420201, Boston College Department of Economics, revised 26 Feb 2002.
+
 Mauricio Caceres Bravo, 2018. "GTOOLS: Stata module to provide a fast implementation of common group commands," Statistical Software Components S458514, Boston College Department of Economics, revised 05 Dec 2022.
 
-Panel Study of Income Dynamics, public use dataset. Produced and distributed by the Survey Research Center, Institute for Social Research, University of Michigan, Ann Arbor, MI (2025).
+Mead Over, 2024. "GRC1LEG2: Stata module to combine multiple graphs with a single common legend," Statistical Software Components S459360, Boston College Department of Economics.
+
+Panel Study of Income Dynamics, public use dataset. Produced and distributed by the Survey Research Center, Institute for Social Research, University of Michigan, Ann Arbor, MI (2025). Files available for download: https://doi.org/10.3886/ICPSR303531.V1.
 
 Roger Newson, 2000. "BSPLINE: Stata modules to compute B-splines parameterized by their values at reference points," Statistical Software Components S411701, Boston College Department of Economics, revised 21 Aug 2022.
 
 Sarah Flood, Miriam King, Renae Rodgers, Steven Ruggles, J. Robert Warren, Daniel Backman, Annie Chen, Grace Cooper, Stephanie Richards, Megan Schouweiler, and Michael Westberry. IPUMS CPS: Version 12.0 [dataset]. Minneapolis, MN: IPUMS, 2024. https://doi.org/10.18128/D030.V12.0
+
+Sergio Correia, 2016. "FTOOLS: Stata module to provide alternatives to common Stata commands optimized for large datasets," Statistical Software Components S458213, Boston College Department of Economics, revised 11 Jan 2026.
+
+Sergio Correia & Matthew P. Seay, 2023. "require: Package dependencies for reproducible research," Papers 2309.11058, arXiv.org, revised Apr 2024.
+
+Sergio Correia & Noah Constantine, 2014. "REGHDFE: Stata module to perform linear or instrumental-variable regression absorbing any number of high-dimensional fixed effects," Statistical Software Components S457874, Boston College Department of Economics, revised 11 Jan 2026.
 
 Sergio Correia & Paulo Guimaraes & Thomas Zylkin, 2019. "PPMLHDFE: Stata module for Poisson pseudo-likelihood regression with multiple levels of fixed effects," Statistical Software Components S458622, Boston College Department of Economics, revised 07 Sep 2023.
 

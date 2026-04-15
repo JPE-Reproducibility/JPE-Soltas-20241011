@@ -29,22 +29,22 @@ Output:
 	** Load data
 
 	* Income limits
-	import delimited "$dir/data/eligsim/liheap/liheap_eligibility_income_limit.csv", delimiter(comma) stripquote(yes) encoding(UTF-8) clear
+	import delimited "$dir/data/eligsim/liheap/LIHEAP_eligibility_income_limit.csv", delimiter(comma) stripquote(yes) encoding(UTF-8) clear
 	tempfile inclimit
 	save `inclimit', replace
 	
 	* Income definition: State median income
-	import delimited "$dir/data/eligsim/liheap/liheap_eligibility_smi.csv", delimiter(comma) stripquote(yes) encoding(UTF-8) clear
+	import delimited "$dir/data/eligsim/liheap/LIHEAP_eligibility_smi.csv", delimiter(comma) stripquote(yes) encoding(UTF-8) clear
 	tempfile smi
 	save `smi', replace
 	
 	* Income definition: HHS federal poverty guideline
-	import delimited "$dir/data/eligsim/liheap/liheap_eligibility_fpg.csv", delimiter(comma) stripquote(yes) encoding(UTF-8) clear
+	import delimited "$dir/data/eligsim/liheap/LIHEAP_eligibility_fpg.csv", delimiter(comma) stripquote(yes) encoding(UTF-8) clear
 	tempfile fpg
 	save `fpg', replace
 	
 	* Asset limits
-	import delimited "$dir/data/eligsim/liheap/liheap_eligibility_asset_limit.csv", delimiter(comma) stripquote(yes) encoding(UTF-8) clear
+	import delimited "$dir/data/eligsim/liheap/LIHEAP_eligibility_asset_limit.csv", delimiter(comma) stripquote(yes) encoding(UTF-8) clear
 	tempfile assetlimit
 	save `assetlimit', replace
 	

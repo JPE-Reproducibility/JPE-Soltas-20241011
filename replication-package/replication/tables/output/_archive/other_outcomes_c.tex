@@ -1,0 +1,59 @@
+\begin{table}[H]
+  \centering\small
+  \caption{Self-Targeting on Additional Measures of Need} 
+   \begin{tabular*}{1.36\textwidth}{@{\extracolsep{\fill}}lcccccccc}
+        \toprule \addlinespace
+        & SNAP                                    & Medicaid                                 & \shortstack{Housing  \\ Assistance}                 & TANF                                 & SSI                                 & \shortstack{School \\ Meals}                                 & WIC                                 & LIHEAP                                 \\
+        & (1)                                     & (2)                                      & (3)                                & (4)                                  & (5)                                 & (6)                                & (7)                                 & (8)                                    \\ \addlinespace \midrule \addlinespace
+\multicolumn{9}{@{}l}{\emph{Panel A: Log Wage (Mean: $$lwage_mean$$)}  }                                                                                                                                                                                                   \\ \addlinespace
+Receives Transfer & $$lwage_snap_starbeta$$    & $$lwage_medicaid_starbeta$$    & $$lwage_ha_starbeta$$    & $$lwage_tanf_starbeta$$    & $$lwage_ssi_starbeta$$    & $$lwage_schoolmeals_starbeta$$    & $$lwage_wic_starbeta$$    & $$lwage_liheap_starbeta$$    \\
+  & ($$lwage_snap_se$$)          &
+($$lwage_medicaid_se$$)          & ($$lwage_ha_se$$)          &
+($$lwage_tanf_se$$)          & ($$lwage_ssi_se$$)          &
+($$lwage_schoolmeals_se$$)          & ($$lwage_wic_se$$)
+& ($$lwage_liheap_se$$)          \\ \addlinespace
+\multicolumn{9}{@{}l}{\emph{Panel B: High-School Dropout (Mean: $$low_ed_mean$$)}  }                                                                                                                                                                                                   \\ \addlinespace
+Receives Transfer & 0.051***    & 0.016    & 0.019    & 0.028    & -0.011    & 0.059***    & 0.009    & 0.031    \\
+ & (0.016)          &
+(0.017)          & (0.022)          &
+(0.032)          & (0.052)          &
+(0.018)          & (0.016)
+& (0.020)          \\ \addlinespace
+\multicolumn{9}{@{}l}{\emph{Panel C: Single Parent (Mean: $$single_parent_mean$$) } }
+\\ \addlinespace
+Receives Transfer & 0.168***    & 0.146***    & 0.123***    & 0.188***    & 0.000    & 0.270***    & 0.005    & 0.055***    \\
+  & (0.014)          & (0.014)          & (0.018)          & (0.031)          & (0.000)          & (0.016)          & (0.020)          & (0.019)          \\ \addlinespace
+\multicolumn{9}{@{}l}{\emph{Panel D: Disabled (Mean: $$disabled_mean$$) }  }
+\\ \addlinespace
+Receives Transfer & 0.113***      & 0.147***      & 0.053***      & 0.052*      & 0.188***      & -0.126***      & 0.013      & 0.106***      \\
+  & (0.016)            & (0.020)            & (0.019)            & (0.027)            & (0.036)            & (0.013)            & (0.010)            & (0.018)            \\ \addlinespace
+  \multicolumn{9}{@{}l}{\emph{Panel E: Fair or Poor Health (Mean: $$fphealth_mean$$) }  }
+  \\ \addlinespace
+  Receives Transfer & $$fphealth_snap_starbeta$$      & $$fphealth_medicaid_starbeta$$      & $$fphealth_ha_starbeta$$      & $$fphealth_tanf_starbeta$$      & $$fphealth_ssi_starbeta$$      & $$fphealth_schoolmeals_starbeta$$      & $$fphealth_wic_starbeta$$      & $$fphealth_liheap_starbeta$$      \\
+    & ($$fphealth_snap_se$$)            & ($$fphealth_medicaid_se$$)            & ($$fphealth_ha_se$$)            & ($$fphealth_tanf_se$$)            & ($$fphealth_ssi_se$$)            & ($$fphealth_schoolmeals_se$$)            & ($$fphealth_wic_se$$)            & ($$fphealth_liheap_se$$)            \\ \addlinespace
+\multicolumn{9}{@{}l}{\emph{Panel F: Nonwhite or Hispanic (Mean: $$nonwhite_mean$$)}   }                                                                                                                                                                                                              \\ \addlinespace
+Receives Transfer & 0.066***     & 0.025     & 0.199***     & 0.001     & -0.054     & 0.052***     & -0.032     & -0.052*     \\
+  & (0.024)           & (0.024)           & (0.030)           & (0.036)           & (0.070)           & (0.020)           & (0.022)           & (0.031)           \\ \addlinespace
+\multicolumn{9}{@{}l}{\emph{Panel G: Has Savings (Mean: $$pos_savings_mean$$)}  }                                                                                                                                                                                                          \\ \addlinespace
+Receives Transfer & $$pos_savings_snap_starbeta$$   & $$pos_savings_medicaid_starbeta$$   & $$pos_savings_ha_starbeta$$   & $$pos_savings_tanf_starbeta$$   & $$pos_savings_ssi_starbeta$$   & $$pos_savings_schoolmeals_starbeta$$   & $$pos_savings_wic_starbeta$$   & $$pos_savings_liheap_starbeta$$   \\
+ & ($$pos_savings_snap_se$$)         &
+($$pos_savings_medicaid_se$$)         & ($$pos_savings_ha_se$$)
+& ($$pos_savings_tanf_se$$)         & ($$pos_savings_ssi_se$$)
+& ($$pos_savings_schoolmeals_se$$)         &
+($$pos_savings_wic_se$$)         & ($$pos_savings_liheap_se$$)
+\\ \addlinespace
+\bottomrule
+\end{tabular*}
+\begin{spacing}{1}
+    \begin{tablenotes}
+          \item \footnotesize \textit{Notes:} Each panel row is for a different
+            outcome, and each column is for a different
+            transfer. Means are computed among the bottom quintile of the
+            current-income distribution. All specifications
+            control flexibly for current-income rank using cubic basis
+            splines and condition on simulated eligibility. Standard errors are clustered by
+            household. $\sym{*} = p < 0.10$, $\sym{**} = p < 0.05$,
+            $\sym{***} = p < 0.01$.            
+          \end{tablenotes}
+           \end{spacing}
+          \end{table}

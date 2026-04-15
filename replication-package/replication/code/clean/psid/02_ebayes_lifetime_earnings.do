@@ -76,7 +76,8 @@ forvalues r = 1/`R' {
 	local B = 100
 	
 	set seed 123456
-	
+	set sortseed 654321
+
 	forvalues i = 1/`B' {
 	
 		di `i'

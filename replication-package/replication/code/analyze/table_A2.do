@@ -22,6 +22,7 @@
 
 *** Settings
 
+	cd "$dir"
 	do "code/settings"
 
 *** Process CEX

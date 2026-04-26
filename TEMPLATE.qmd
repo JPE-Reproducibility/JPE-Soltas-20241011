@@ -37,7 +37,7 @@ In assessing compliance with our [Data and Code Availability Policy](https://www
 - [x] Computational requirements
   - [x] Software Requirements
   - [x] Controlled Randomness (as necessary)
-  - [ ] Memory, Runtime, and Storage Requirements
+  - [x] Memory, Runtime, and Storage Requirements
 - [x] Description of programs/code
   - [ ] License for Code (Optional, but recommended) 
 - [x] {REPLICATOR} to Replicators
@@ -1122,27 +1122,35 @@ For any data that cannot be provided as part of the replication package, please 
 
 - [x] README is in TXT, MD, or PDF format
 - [x] README is accessible at the root of the package (not inside a folder)
-- [ ] Title conforms to guidance (starts with "Data and Code for: Title of Paper" or "Code for: Title of Paper", is properly capitalized)
-- [ ] Authors (with affiliations) are listed in the same order as on the paper
-
-> {REQUIRED} Please review the title of the deposit as per our guidelines.
-
-> {REQUIRED} Please review authors and affiliations on the deposit. In general, they are the same, and in the same order, as for the manuscript; however, authors can deviate from that order.
-
+- [x] Title conforms to guidance (starts with "Data and Code for: Title of Paper" or "Code for: Title of Paper", is properly capitalized)
+- [x] Authors (with affiliations) are listed in the same order as on the paper
 
 ## Stated Requirements
 
-> {REPLICATOR}: The authors may have specified specific requirements in terms of software, computer hardware, etc. Please list them here. This is **different** from the Computing Environment of the Replicator. You have the option to amend these with unstated requirements later. If all requirements are listed, check the box "Requirements are complete".
-
 - [ ] No requirements specified
-- [ ] Software Requirements specified as follows:
-  - Software 1
-  - Software 2
+- [x] Software Requirements specified as follows:
+  - Stata (code was last run with version 19.5)
+
+      `bspline` (as of 2021-08-21)
+
+      `ftools` (as of 2026-01-11)
+
+      `gtools` (as of 2022-12-05)
+
+      `ppmlhdfe` (as of 2023-09-07)
+
+      `statastates` (as of 2018-01-10)
+
+      The relevant commands for each package is downloaded and provided in the `packages` folder.
+
+      For `ebayes.ado`, which can be found in the packages folder, if the error `ebayes command not found` appears, please try copying the file to your personal `ado` folder. This can be found by the `sysdir` command in Stata.
 - [x] Computational Requirements specified as follows:
   - The code was last run on a **Intel(R) Xeon(R) Gold 6146 CPU @ 3.20GHz 3.19 GHz (2 processors) with 1.5TB of installed memory (RAM)**.
-- [ ] Time Requirements specified as follows:
-  - Length of necessary computation (hours, weeks, etc.)
-
+  - Approximate storage space needed:
+      2 GB - 25 GB
+- [x] Time Requirements specified as follows:
+  - Approximate time needed to reproduce the analyses on a standard 2025 desktop machine:
+      8-24 hours
 - [ ] Requirements are complete.
 
 For missing requirements, see the list of required changes in @sec-findings
@@ -1185,51 +1193,26 @@ There are 4 main do files and 1 Python file.
 - Uploaded the package to Nuvolos.
 - Set up the paths in the code.
 - Ran `run_all.do` as per README.
-- I had to add `cd "../"` at the begining of `run_all.do`, otherwise it won't run.
-- I had to `ssc install ftools`.
 - I had to `ssc install reghdfe`.
 - I had to `ssc install mmerge`.
 - I had to `ssc install require`.
 - I had to `net install grc1leg`.
 
-- In `prepare_eligsim_liheap.do`, I had to replace lines 32, 37, 42, and 47 as follows:
-  From:
-  ```stata
-  import delimited "$dir/data/eligsim/liheap/liheap_eligibility_*.csv", delimiter(comma) stripquote(yes) encoding(UTF-8) clear
-  ```
-  To:
-  ```stata
-  import delimited "$dir/data/eligsim/liheap/LIHEAP_eligibility_*.csv", delimiter(comma) stripquote(yes) encoding(UTF-8) clear
-  ```
-
-- When running the loop over the different analysis do files, when it reaches `table_A2.do` I hit this error:
-  ```stata
-  file code/settings.do not found
-  r(601);
-
-  end of do-file
-  r(601);
-
-  end of do-file
-
-  r(601);
-  ```
-  This is caused by the previous do file in the loop changing the working directory, which is not then set back to `cd "$dir”`. Adding the latter code in line 24 of `table_A2.do` fixes the problem.
-
 # Findings {#sec-findings}
 
 Almost all of the output results show discrepancies with the paper. Even so, all of the results except for Table 3 were produced by the code.
 
-I had to asume that the latest version of the manuscript is `../replication/paper/2-JPE/TransferSelection_JPE_Revised.pdf`. It's the one that shows the most recent date, but no explicit indication of it is found. It is very important to note that the evaluation presented here is based purely on the comparison between the outputs and that specific version of the paper, so some (even all) of the comments may not be aplicable if there is a more recent version. Also, note that the `paper` folder in the submitted replication package is empty, so perhaps the authors forgot to include the newest version there (which may match with the results much better).
+Figure 1c as per `replication tracker.xlsx` should be `eligregs_between_within_lifetime_no.pdf` instead of `eligregs_between_within_lifetime.pdf`. Figure A23c as per `replication tracker.xlsx` should be `eligregs_between_within_lifetime_yes.pdf` instead of `eligregs_between_within_lifetime.pdf`. Figure A29b as per `replication tracker.xlsx` should be `rk_lifetime_eq_pred_income.pdf` instead of `rk_c_eq_pred_income.pdf`. Figure A32 as per `replication tracker.xlsx` should be `adversarial_reg.pdf` instead of `adversarial.pdf`. Table A4 as per `replication tracker.xlsx` should be `other_outcomes.tex` instead of `other_outcomes_c.tex`.
 
-In `replication tracker.xlsx` Figure 1c should be associated to `eligregs_between_within_lifetime_no.pdf` and from Figure A3 on, the rows should move 1 step down to match their actual output file (i.e., Figure A3 should be associated to  `rank_decay.pdf`, Figure A4 to `eligregs_robustness_8_c.pdf`, and so on). Figure A23c as per `replication tracker.xlsx` should be `eligregs_between_within_lifetime_no.pdf` instead of `eligregs_between_within_lifetime.pdf`. Figure A23c as per `replication tracker.xlsx` should be `rk_lifetime_eq_pred_income.pdf` instead of `rk_c_eq_pred_income.pdf`.
+Slight discrepancies were found in virtually all output (at most, differences in 1 decimal unit).
+
+In the software requirements of the `README.pdf` Python should be included (the code runs a Python script from Stata).
 
 ## Missing Requirements
 
 - [x] Software Requirements 
   - [x] Stata
     - [x] 19.5
-      - `ftools`.
       - `reghdfe`.
       - `mmerge`.
       - `require`.
@@ -1239,13 +1222,13 @@ In `replication tracker.xlsx` Figure 1c should be associated to `eligregs_betwee
   - [ ] R
     - [ ] Version
     - R packages go here
-  - [ ] Python
+  - [x] Python
     - [ ] Version
     - Python package go here
   - [ ] REPLACE ME WITH OTHER
-- [x] Computational Requirements specified as follows:
+- [ ] Computational Requirements specified as follows:
   - Cluster size, disk size, memory size, etc.
-- [x] Time Requirements 
+- [ ] Time Requirements 
   - Length of necessary computation (hours, weeks, etc.)
 
 > [REQUIRED] Please amend README to contain complete requirements. 
@@ -1258,147 +1241,27 @@ You can copy the section above, amended if necessary.
 - All of the data preparation scripts ran without error, output expected data.
 
 ## Tables and Figures
-- Discrepancies in Figure 1b (see screenshots below):
+- Discrepancies in Figure A8 (see screenshots below):
 
-::: {#fig-1b layout-ncol=2}
+::: {#fig-a8 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-03-11 130734.png)
+![Paper version](images/Captura de pantalla 2026-04-26 a las 19.37.13.png)
 
-![Replicated version](images/Captura de pantalla 2026-03-11 130816.png)
+![Replicated version](images/Captura de pantalla 2026-04-26 a las 19.37.28.png)
 
-Figure 1b
-
-:::
-
-- Discrepancies in Figure A1 (see screenshots below):
-
-::: {#fig-a1 layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-11 140421.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-11 140443.png)
-
-Figure A1
+Figure A8
 
 :::
 
-- Discrepancies in Figure A2b (see screenshots below):
+- Discrepancies in Figure A11b (see screenshots below):
 
-::: {#fig-a2b layout-ncol=2}
+::: {#fig-a11b layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-03-11 140747.png)
+![Paper version](images/Captura de pantalla 2026-04-26 a las 21.17.10.png)
 
-![Replicated version](images/Captura de pantalla 2026-03-11 140802.png)
+![Replicated version](images/Captura de pantalla 2026-04-26 a las 21.17.26.png)
 
-Figure A2b
-
-:::
-
-- Discrepancies in Figure A5b (see screenshots below):
-
-::: {#fig-a5b layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-12 090140.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-12 090216.png)
-
-Figure A5b
-
-:::
-
-- Discrepancies in Figure A6b (see screenshots below):
-
-::: {#fig-a6b layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-12 090453.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-12 090531.png)
-
-Figure A6b
-
-:::
-
-- Discrepancies in Figure A7 (see screenshots below):
-
-::: {#fig-a7 layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-12 090727.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-12 090749.png)
-
-Figure A7
-
-:::
-
-- Discrepancies in Figure A8a (see screenshots below):
-
-::: {#fig-a8a layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-12 090926.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-12 090954.png)
-
-Figure A8a
-
-:::
-
-- Discrepancies in Figure A8b (see screenshots below):
-
-::: {#fig-a8b layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-12 091102.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-12 091125.png)
-
-Figure A8b
-
-:::
-
-- Discrepancies in Figure A9b (see screenshots below):
-
-::: {#fig-a9b layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-12 091401.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-12 091425.png)
-
-Figure A9b
-
-:::
-
-- Discrepancies in Figure A12a (see screenshots below):
-
-::: {#fig-a12a layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-12 092142.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-12 092205.png)
-
-Figure A12a
-
-:::
-
-- Discrepancies in Figure A12b (see screenshots below):
-
-::: {#fig-a12b layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-12 092514.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-12 092534.png)
-
-Figure A12b
-
-:::
-
-- Discrepancies in Figure A14 (see screenshots below):
-
-::: {#fig-a14 layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-12 092832.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-12 092855.png)
-
-Figure A14
+Figure A11b
 
 :::
 
@@ -1406,143 +1269,23 @@ Figure A14
 
 ::: {#fig-a15b layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-03-12 093057.png)
+![Paper version](images/Captura de pantalla 2026-04-26 a las 21.26.15.png)
 
-![Replicated version](images/Captura de pantalla 2026-03-12 093130.png)
+![Replicated version](images/Captura de pantalla 2026-04-26 a las 21.26.40.png)
 
 Figure A15b
 
 :::
 
-- Discrepancies in Figure A16 (see screenshots below):
+- Discrepancies in Figure A24b (see screenshots below):
 
-::: {#fig-a16 layout-ncol=2}
+::: {#fig-a24b layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-03-12 093301.png)
+![Paper version](images/Captura de pantalla 2026-04-26 a las 21.47.53.png)
 
-![Replicated version](images/Captura de pantalla 2026-03-12 093329.png)
+![Replicated version](images/Captura de pantalla 2026-04-26 a las 21.48.08.png)
 
-Figure A16
-
-:::
-
-- Discrepancies in Figure A20b (see screenshots below):
-
-::: {#fig-a20b layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-12 093935.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-12 093958.png)
-
-Figure A20b
-
-:::
-
-- Discrepancies in Figure A21 (see screenshots below):
-
-::: {#fig-a21 layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-12 094124.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-12 094154.png)
-
-Figure A21
-
-:::
-
-- Discrepancies in Figure A22b (see screenshots below):
-
-::: {#fig-a22b layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-12 094556.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-12 094631.png)
-
-Figure A22b
-
-:::
-
-- Discrepancies in Figure A23a (see screenshots below):
-
-::: {#fig-a23a layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-12 095252.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-12 095311.png)
-
-Figure A23a
-
-:::
-
-- Discrepancies in Figure A23b (see screenshots below):
-
-::: {#fig-a23b layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-12 095410.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-12 095432.png)
-
-Figure A23b
-
-:::
-
-- Discrepancies in Figure A24 (see screenshots below):
-
-::: {#fig-a24 layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-12 095525.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-12 095546.png)
-
-Figure A24
-
-:::
-
-- Discrepancies in Figure A25b (see screenshots below):
-
-::: {#fig-a25b layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-12 095809.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-12 095832.png)
-
-Figure A25b
-
-:::
-
-- Discrepancies in Figure A26b (see screenshots below):
-
-::: {#fig-a26b layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-12 100048.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-12 100117.png)
-
-Figure A26b
-
-:::
-
-- Discrepancies in Figure A27a (see screenshots below):
-
-::: {#fig-a27a layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-12 100251.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-12 100314.png)
-
-Figure A27a
-
-:::
-
-- Discrepancies in Figure A27b (see screenshots below):
-
-::: {#fig-a27b layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-12 100415.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-12 100434.png)
-
-Table A27b
+Figure A24b
 
 :::
 
@@ -1550,47 +1293,23 @@ Table A27b
 
 ::: {#fig-a28b layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-03-12 100735.png)
+![Paper version](images/Captura de pantalla 2026-04-26 a las 21.55.07.png)
 
-![Replicated version](images/Captura de pantalla 2026-03-12 100751.png)
+![Replicated version](images/Captura de pantalla 2026-04-26 a las 21.55.25.png)
 
 Figure A28b
 
 :::
 
-- Discrepancies in Figure A29 (see screenshots below):
+- Discrepancies in Figure A32 (see screenshots below):
 
-::: {#fig-a29 layout-ncol=2}
+::: {#fig-a32 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-03-12 100900.png)
+![Paper version](images/Captura de pantalla 2026-04-26 a las 22.01.50.png)
 
-![Replicated version](images/Captura de pantalla 2026-03-12 100916.png)
+![Replicated version](images/Captura de pantalla 2026-04-26 a las 22.02.14.png)
 
-Figure A29
-
-:::
-
-- Discrepancies in Figure A30 (see screenshots below):
-
-::: {#fig-a30 layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-12 101005.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-12 101024.png)
-
-Figure A30
-
-:::
-
-- Discrepancies in Figure A31 (see screenshots below):
-
-::: {#fig-a31 layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-12 101134.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-12 101151.png)
-
-Figure A31
+Figure A32
 
 :::
 
@@ -1598,9 +1317,9 @@ Figure A31
 
 ::: {#tab-1 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-03-16 a las 16.22.52.png)
+![Paper version](images/Captura de pantalla 2026-04-26 a las 22.07.53.png)
 
-![Replicated version](images/Captura de pantalla 2026-03-16 a las 16.23.09.png)
+![Replicated version](images/Captura de pantalla 2026-04-26 a las 22.08.37.png)
 
 Table 1
 
@@ -1610,37 +1329,23 @@ Table 1
 
 ::: {#tab-2 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-03-16 a las 16.35.47.png)
+![Paper version](images/Captura de pantalla 2026-04-26 a las 22.11.57.png)
 
-![Replicated version](images/Captura de pantalla 2026-03-16 a las 16.36.05.png)
+![Replicated version](images/Captura de pantalla 2026-04-26 a las 22.12.26.png)
 
 Table 2
 
 :::
 
-- Table 3 is not reproduced.
-
 - Discrepancies in Table A1 (see screenshots below):
 
 ::: {#tab-a1 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-03-16 a las 16.43.59.png)
+![Paper version](images/Captura de pantalla 2026-04-26 a las 22.21.28.png)
 
-![Replicated version](images/Captura de pantalla 2026-03-16 a las 16.44.13.png)
+![Replicated version](images/Captura de pantalla 2026-04-26 a las 22.21.45.png)
 
 Table A1
-
-:::
-
-- Discrepancies in Table A2 (see screenshots below):
-
-::: {#tab-a2 layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-16 a las 16.45.28.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-16 a las 16.45.42.png)
-
-Table A2
 
 :::
 
@@ -1648,35 +1353,11 @@ Table A2
 
 ::: {#tab-a3 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-03-16 a las 16.46.34.png)
+![Paper version](images/Captura de pantalla 2026-04-26 a las 22.26.35.png)
 
-![Replicated version](images/Captura de pantalla 2026-03-16 a las 16.46.49.png)
+![Replicated version](images/Captura de pantalla 2026-04-26 a las 22.27.00.png)
 
 Table A3
-
-:::
-
-- Discrepancies in Table A4 (see screenshots below):
-
-::: {#tab-a4 layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-16 a las 16.47.47.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-16 a las 16.48.01.png)
-
-Table A4
-
-:::
-
-- Discrepancies in Table A5 (see screenshots below):
-
-::: {#tab-a5 layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-16 a las 16.48.37.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-16 a las 16.48.52.png)
-
-Table A5
 
 :::
 
@@ -1684,23 +1365,11 @@ Table A5
 
 ::: {#tab-a6 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-03-16 a las 16.50.43.png)
+![Paper version](images/Captura de pantalla 2026-04-26 a las 22.33.28.png)
 
-![Replicated version](images/Captura de pantalla 2026-03-16 a las 16.50.57.png)
+![Replicated version](images/Captura de pantalla 2026-04-26 a las 22.33.42.png)
 
 Table A6
-
-:::
-
-- Discrepancies in Table A7 (see screenshots below):
-
-::: {#tab-a7 layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-16 a las 16.52.18.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-16 a las 16.52.37.png)
-
-Table A7
 
 :::
 
@@ -1708,124 +1377,31 @@ Table A7
 
 ::: {#tab-a8 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-03-16 a las 16.53.16.png)
+![Paper version](images/Captura de pantalla 2026-04-26 a las 22.36.44.png)
 
-![Replicated version](images/Captura de pantalla 2026-03-16 a las 16.53.31.png)
+![Replicated version](images/Captura de pantalla 2026-04-26 a las 22.37.28.png)
 
 Table A8
 
 :::
 
-- Discrepancies in Table A9 (see screenshots below):
-
-::: {#tab-a9 layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-16 a las 16.55.02.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-16 a las 16.55.16.png)
-
-Table A9
-
-
-![Replicated version](images/Captura de pantalla 2026-03-16 a las 16.55.16.png)
-
-Table A9
-
-:::
-
-- Discrepancies in Table A10 (see screenshots below):
-
-::: {#tab-a10 layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-16 a las 16.56.34.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-16 a las 16.56.46.png)
-
-Table A10
-
-:::
-
-- Discrepancies in Table A11 (see screenshots below):
-
-::: {#tab-a11 layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-16 a las 16.57.44.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-16 a las 16.57.59.png)
-
-Table A11
-
-:::
-
-- Discrepancies in Table A12 (see screenshots below):
-
-::: {#tab-a12 layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-16 a las 16.58.55.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-16 a las 16.59.10.png)
-
-Table A12
-
-:::
-
-- Discrepancies in Table A13 (see screenshots below):
-
-::: {#tab-a13 layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-16 a las 16.59.44.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-16 a las 16.59.59.png)
-
-Table A13
-
-:::
-
-- Discrepancies in Table A14 (see screenshots below):
-
-::: {#tab-a14 layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-03-16 a las 17.03.02.png)
-
-![Replicated version](images/Captura de pantalla 2026-03-16 a las 17.03.22.png)
-
-Table A14
-
-:::
-
-- Discrepancies in Table A17 (see screenshots below):
-
-::: {#tab-a17 layout-ncol=2}
-
-![Paper version](/images/Captura de pantalla 2026-03-16 a las 17.06.22.png)
-
-![Replicated version](/images/Captura de pantalla 2026-03-16 a las 17.06.38.png)
-
-Table A17
-
-:::
+Tables A15 and A16 were not reproduced (although I do not think they are meant to be reproduced).
 
 ## In-Text Numbers
 
-> {REPLICATOR}: list page and line number of in-text numbers. If ambiguous, cite the surrounding text, i.e., "the rate fell to 52% of all jobs: verified".
-
 - [ ] In-text numbers not verified.
 
-- [ ] There are no in-text numbers, or all in-text numbers stem from tables and figures.
+- [x] There are no in-text numbers, or all in-text numbers stem from tables and figures.
 
-- [x] There are in-text numbers, but they are not identified in the code
-
-- Page 14: "In level terms, these results are consistent with differences of approximately 20 to 60 percent in these outcomes, or around $2,500 to $10,000 per person per year in consumption".
+- [ ] There are in-text numbers, but they are not identified in the code
 
 ## Other Issues
-
-- Some output results do not correspond to any table or figure in the paper.
 
 # Classification
 
 - [ ] full reproduction
-- [ ] full reproduction with minor issues
-- [x] partial reproduction (see above)
+- [x] full reproduction with minor issues
+- [ ] partial reproduction (see above)
 - [ ] not able to reproduce most or all of the results (reasons see above)
 
 ## Reason for incomplete reproducibility

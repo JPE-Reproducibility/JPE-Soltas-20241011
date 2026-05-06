@@ -46,11 +46,17 @@ Proprietary data used in analysis have been removed from the replication package
 - Stata (code was last run with version 19.5)
   - `bspline` (as of 2021-08-21)
   - `ftools` (as of 2026-01-11)
+  - `grc1leg` (as of 2010-06-02)
   - `gtools` (as of 2022-12-05)
+  - `mmerge` (as of 2002-02-26)
   - `ppmlhdfe` (as of 2023-09-07)
+  - `reghdfe` (as of 2016-02-21)
+  - `require` (as of 2023-09-19)
   - `statastates` (as of 2018-01-10)
   - The relevant commands for each package is downloaded and provided in the `packages` folder.
   - For `ebayes.ado`, which can be found in the `packages` folder, if the error `ebayes command not found` appears, please try copying the file to your personal `ado` folder. This can be found by the `sysdir` command in Stata.
+
+  - Python 3.13.7 (code runs a Python script table_from_tpl.py via Stata). Only standard library modules required: os, sys, optparse.
 
 ### Controlled Randomness
 

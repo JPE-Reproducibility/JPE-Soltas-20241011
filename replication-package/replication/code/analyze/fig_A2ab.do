@@ -181,6 +181,7 @@ cap file close fh
 		
 	    import delimited using  "$dir/figures/participation_reg_robustness11.csv", clear
 		keep if spec == "`spec'"
+		sort prog spec inc b se
 		duplicates drop prog spec inc, force
 		
 		gen high = b + 1.96 * se

@@ -83,14 +83,19 @@ forvalues r = 1/`R' {
 		di `i'
 		
 		quietly {
-		
+
 		use "$dir/data/psid_int.dta", clear
 		merge m:1 age using `projection_latest', keep(1 3) nogen
-		
+
 		replace income_real = income_real + 1 if !missing(income_real)
-		
+
+		* Lock in deterministic row order before drawing random weights:
+		* (id, year) is unique in psid_int.dta, so this fixes the mapping
+		* of rgamma() draws to person-year observations across machines.
+		sort id year
+
 		* Create Bayesian bootstrap weight
-		
+
 		gen gamma_tmp = rgamma(0.5,0.5)
 		gegen gammavar = first(gamma_tmp), by(id)
 		gegen gammasum = sum(gammavar)
@@ -176,10 +181,13 @@ forvalues r = 1/`R' {
 		local n_years = `age_max' - `age_min' + 1
 		
 		expand `n_years'
-		
-		gsort id
-		gen age = 18
-		replace age = age[_n-1]+1 if !missing(age[_n-1]) & id == id[_n-1]
+
+		* Assign ages 18..65 deterministically within each unique person.
+		* (id, famid_orig, perid_orig) uniquely identifies a person here
+		* (after the gduplicates drop above), so _n within that group is
+		* well-defined regardless of within-group sort order.
+		sort id famid_orig perid_orig
+		by id famid_orig perid_orig: gen age = `age_min' + _n - 1
 		
 		tempfile balanced_panel
 		save `balanced_panel', replace

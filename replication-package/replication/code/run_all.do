@@ -12,8 +12,17 @@ do code/settings.do
 	adopath + "$dir/packages"
 	do "$dir/code/stata-tex.do"
 	set scheme simplescheme
-	
+
 	global imputation = 0
+
+* Global seeds for bit-for-bit replication.
+* Individual do-files may override these with their own `set seed` /
+* `set sortseed` for the specific blocks where randomness is invoked;
+* these globals exist so that any sort tiebreaking that occurs before
+* a do-file's local seed is set still uses a fixed, machine-independent
+* random stream.
+	set seed 20260504
+	set sortseed 20260504
 
 /***************************************************************************
 ******************************** Data cleaning******************************

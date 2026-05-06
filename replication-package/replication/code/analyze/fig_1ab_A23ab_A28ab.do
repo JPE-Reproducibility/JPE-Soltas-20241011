@@ -206,7 +206,7 @@ foreach eligvar in yes partial no {
 	foreach prog in snap medicaid liheap schoolmeals ssi wic ha tanf {
 		local wtname = "wt_`prog'"
 		local wtval = ${`wtname'}
-		replace wtfam = wtfam * `wtval'
+		replace wtfam = wtfam * `wtval' if transfer == "`prog'"
 	}
 	
 	if "`eligvar'" == "no" local eligsim = "eligsim_"
@@ -325,7 +325,7 @@ foreach imputed in "yes" "no" {
 
     * sorting 
     gen raweffect_tmp = b if regtype == "raw"
-    bys prog: egen raweffect = mean(raweffect)
+    bys prog: egen raweffect = mean(raweffect_tmp)
     replace raweffect = 5 if prog == "avg" 
 
 
@@ -552,7 +552,7 @@ foreach imputed in "yes" "partial" "no" {
     gen low = b - 1.96 * se
 
     gen raweffect_tmp = b if regtype == "raw" 
-    bys prog: egen raweffect = mean(raweffect)
+    bys prog: egen raweffect = mean(raweffect_tmp)
     replace raweffect = 5 if prog == "avg" 
 
     gen order = 1 if regtype == "raw" 

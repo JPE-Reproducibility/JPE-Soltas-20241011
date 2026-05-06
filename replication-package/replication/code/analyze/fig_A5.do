@@ -126,6 +126,7 @@ cap file close fh
 * make plot
 		
 	import delimited using  "$dir/figures/participation_reg_robustness8.csv", clear
+	sort prog alt b se
 	duplicates drop prog alt, force
 	
 	gen high = b + 1.96 * se

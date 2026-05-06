@@ -46,7 +46,7 @@ Output:
 	
 		* Current household
 		
-		bys year (faminct_real): gen rk_current_hh = sum(wtfam) if !missing(faminct_real) & !missing(lifetime_income) & !missing(consumption_real)
+		bys year (faminct_real id): gen rk_current_hh = sum(wtfam) if !missing(faminct_real) & !missing(lifetime_income) & !missing(consumption_real)
 		bys year: gegen min_rk_current_hh = min(rk_current_hh)
 		bys year: gegen max_rk_current_hh = max(rk_current_hh)
 		replace rk_current_hh = 100*(rk_current_hh - min_rk_current_hh) / (max_rk_current_hh - min_rk_current_hh)
@@ -57,7 +57,7 @@ Output:
 		bys famid year: gegen lifetime_income_hh_ = sum(lifetime_income) if !missing(income_real)
 		bys id: gegen lifetime_income_hh = mean(lifetime_income_hh_) [aw=wtfam]
 
-		bys cohort_ind (lifetime_income_hh): gen rk_lifetime_hh = sum(wtfam) if !missing(lifetime_income) & !missing(consumption_real)
+		bys cohort_ind (lifetime_income_hh id year): gen rk_lifetime_hh = sum(wtfam) if !missing(lifetime_income) & !missing(consumption_real)
 		bys cohort_ind: gegen min_rk_lifetime_hh = min(rk_lifetime_hh)
 		bys cohort_ind: gegen max_rk_lifetime_hh = max(rk_lifetime_hh)
 		replace rk_lifetime_hh = 100*(rk_lifetime_hh - min_rk_lifetime_hh) / (max_rk_lifetime_hh - min_rk_lifetime_hh)
@@ -72,7 +72,7 @@ Output:
 		gen equivalence_scale = ((hhsize-nchild)+0.7*nchild)^0.7
 		gen eq_income_real = faminct_real / equivalence_scale
 		
-		bys year (eq_income_real): gen rk_current_eq = sum(wtfam) if !missing(faminct_real) & !missing(lifetime_income) & !missing(consumption_real)
+		bys year (eq_income_real id): gen rk_current_eq = sum(wtfam) if !missing(faminct_real) & !missing(lifetime_income) & !missing(consumption_real)
 		bys year: gegen min_rk_current_eq = min(rk_current_eq)
 		bys year: gegen max_rk_current_eq = max(rk_current_eq)
 		replace rk_current_eq = 100*(rk_current_eq - min_rk_current_eq) / (max_rk_current_eq - min_rk_current_eq)
@@ -84,7 +84,7 @@ Output:
 		bys id: gegen lifetime_income_eq = mean(lifetime_income_eq_) [aw=wtfam]
 		drop equivalence_scale lifetime_income_hh_ lifetime_income_eq_
 		
-		bys cohort_ind (lifetime_income_eq): gen rk_lifetime_eq = sum(wtfam) if !missing(faminct_real) & !missing(lifetime_income) & !missing(consumption_real)
+		bys cohort_ind (lifetime_income_eq id year): gen rk_lifetime_eq = sum(wtfam) if !missing(faminct_real) & !missing(lifetime_income) & !missing(consumption_real)
 		bys cohort_ind: gegen min_rk_lifetime_eq = min(rk_lifetime_eq)
 		bys cohort_ind: gegen max_rk_lifetime_eq = max(rk_lifetime_eq)
 		replace rk_lifetime_eq = 100*(rk_lifetime_eq - min_rk_lifetime_eq) / (max_rk_lifetime_eq - min_rk_lifetime_eq)
@@ -98,7 +98,7 @@ Output:
 	
 		* Current household
 		
-		bys year (consumption_real): gen rk_c_current_hh = sum(wtfam) if !missing(faminct_real) & !missing(lifetime_income) & !missing(consumption_real)
+		bys year (consumption_real id): gen rk_c_current_hh = sum(wtfam) if !missing(faminct_real) & !missing(lifetime_income) & !missing(consumption_real)
 		bys year: gegen min_rk_c_current_hh = min(rk_c_current_hh)
 		bys year: gegen max_rk_c_current_hh = max(rk_c_current_hh)
 		replace rk_c_current_hh = 100*(rk_c_current_hh - min_rk_c_current_hh) / (max_rk_c_current_hh - min_rk_c_current_hh)
@@ -111,7 +111,7 @@ Output:
 		gen eq_cons_real = consumption_real / equivalence_scale
 		label variable eq_cons_real "Real equivalized household consumption"
 		
-		bys year (eq_cons): gen rk_c_current_eq = sum(wtfam) if !missing(faminct_real) & !missing(lifetime_income) & !missing(consumption_real)
+		bys year (eq_cons id): gen rk_c_current_eq = sum(wtfam) if !missing(faminct_real) & !missing(lifetime_income) & !missing(consumption_real)
 		bys year: gegen min_rk_c_current_eq = min(rk_c_current_eq)
 		bys year: gegen max_rk_c_current_eq = max(rk_c_current_eq)
 		replace rk_c_current_eq = 100*(rk_c_current_eq - min_rk_c_current_eq) / (max_rk_c_current_eq - min_rk_c_current_eq)
@@ -126,7 +126,7 @@ Output:
 		preserve
 		keep if year == 2019 & !missing(consumption_real)
 		
-		sort eq_cons
+		sort eq_cons_real id
 		gen rk = 100*(_n-1)/(_N-1)
 		gen at_rk = 0.1*(_n-1) if _n<1002
 		

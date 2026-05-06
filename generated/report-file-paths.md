@@ -1,6 +1,6 @@
 ### File Paths Report
 
-_Generated on 2026-04-15T16:32:31.075_
+_Generated on 2026-05-06T16:18:53.577_
 
 **Warning**: Our search on file path types is imperfect and incurs both type 1 and type 2 errors. We aim to strike a reasonable balance between both. The below table is therefore only indicative. Detailed listings can be found in the appendix to this report.
 
@@ -11,5 +11,5 @@ Please check and replace any `windows` filepaths with unix compliant paths, inso
 
 | Files Analyzed | Windows Paths | Unix Paths | Mixed Paths | Drive Letters (`C:\` etc) |
 |-------------|---------------------|------------------|-------------------|----------------------|
-| 285 | 8 | 69 | 0 | 0 |
+| 289 | 9 | 69 | 0 | 0 |
 

@@ -300,6 +300,11 @@ Output:
 	
 *** IMPUTATION
 
+	* Lock in a deterministic row order before any estimation/collapse so that
+	* ppmlhdfe iterations and gcollapse(firstnm) output do not depend on
+	* infix's incidental order.
+	sort year serial pernum
+
 	replace famsize = 7 if famsize > 7 & !missing(famsize)
 
 	* Estimate Medicaid value by year and HH size

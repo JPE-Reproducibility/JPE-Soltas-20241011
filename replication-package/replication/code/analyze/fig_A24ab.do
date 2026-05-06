@@ -129,7 +129,7 @@ foreach outcome in "_c" "_li" {
 		
 		local wtname = "wt_`prog'"
 		local wtval = ${`wtname'}
-		replace wtfam = wtfam * `wtval'
+		replace wtfam = wtfam * `wtval' if transfer == "`prog'"
 		
 		di "`prog' : `wtval'"
 			
@@ -178,7 +178,7 @@ cap file close fh
 		gen low = b - 1.96 * se
 
 		gen raweffect_tmp = b if high_prelig == 0
-		bys prog: egen raweffect = mean(raweffect)
+		bys prog: egen raweffect = mean(raweffect_tmp)
 		replace raweffect = 5 if prog == "avg" 
 
 		gen order = 1 if high_prelig == 0
@@ -212,7 +212,7 @@ cap file close fh
 		global red `" "217 83 79" "'
 		global orange `" "240 173 78" "'
 		
-		if spec == "_c" {
+		if "`spec'" == "_c" {
 
 			gr twoway /// 
 				(rcap high low n if high_prelig == 1, color( $navy ) msize(medium) horizontal xline(0,lcolor(gs9)) xlabel(-20(5)5) xscale(range(-20 5))) ///
@@ -225,7 +225,7 @@ cap file close fh
 			  
 		}
 		
-		if spec == "_li" {
+		if "`spec'" == "_li" {
 
 			gr twoway /// 
 				(rcap high low n if high_prelig == 1, color( $navy ) msize(medium) horizontal xline(0,lcolor(gs9)) xlabel(-20(5)5) xscale(range(-20 5))) ///

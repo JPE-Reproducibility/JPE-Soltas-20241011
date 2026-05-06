@@ -2,7 +2,7 @@
 
 ### Stata
 
-[CRITICAL] Hardcoded absolute path detected — the package will not run on another machine. (settings.do, line 17)
+[CRITICAL] Hardcoded absolute path detected — the package will not run on another machine. (settings.do, line 22)
   → global dir "C:/Users/al2705/Princeton Dropbox/Allan Lee/TransferIncidence/replication"
 
 [ADVISORY] Sample drop (`drop if` / `keep if`) not preceded by a comment within 2 lines — consider adding a comment explaining the criterion. (fig_1ab_A23ab_A28ab.do, line 66)
@@ -143,7 +143,7 @@
 [ADVISORY] Sample drop (`drop if` / `keep if`) not preceded by a comment within 2 lines — consider adding a comment explaining the criterion. (fig_A7ab.do, line 159)
   → keep if spec == "`spec'"
 
-[ADVISORY] Sample drop (`drop if` / `keep if`) not preceded by a comment within 2 lines — consider adding a comment explaining the criterion. (fig_A8.do, line 65)
+[ADVISORY] Sample drop (`drop if` / `keep if`) not preceded by a comment within 2 lines — consider adding a comment explaining the criterion. (fig_A8.do, line 71)
   → keep if year == 1998
 
 [ADVISORY] Sample drop (`drop if` / `keep if`) not preceded by a comment within 2 lines — consider adding a comment explaining the criterion. (fig_A9ab.do, line 154)
@@ -269,7 +269,7 @@
 [ADVISORY] Sample drop (`drop if` / `keep if`) not preceded by a comment within 2 lines — consider adding a comment explaining the criterion. (01_psid_reshape.do, line 1270)
   → drop if missing(veh`i'_manuf)
 
-[ADVISORY] Sample drop (`drop if` / `keep if`) not preceded by a comment within 2 lines — consider adding a comment explaining the criterion. (02_ebayes_lifetime_earnings.do, line 155)
+[ADVISORY] Sample drop (`drop if` / `keep if`) not preceded by a comment within 2 lines — consider adding a comment explaining the criterion. (02_ebayes_lifetime_earnings.do, line 160)
   → keep if r == `r'
 
 [ADVISORY] Sample drop (`drop if` / `keep if`) not preceded by a comment within 2 lines — consider adding a comment explaining the criterion. (03_merge_psid_reshape_lifetime_earnings.do, line 127)

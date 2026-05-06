@@ -108,7 +108,7 @@ foreach spec in "_c" "_li" {
 		
 		local wtname = "wt_`prog'"
 		local wtval = ${`wtname'}
-		replace wtfam = wtfam * `wtval'
+		replace wtfam = wtfam * `wtval' if transfer == "`prog'"
 		
 		di "`prog' : `wtval'"
 			
@@ -141,13 +141,14 @@ cap file close fh
 		
 	    import delimited using  "$dir/figures/participation_reg_robustness10.csv", clear
 		keep if spec == "`spec'"
+		sort prog spec grp b se
 		duplicates drop prog spec grp, force
 		
 		gen high = b + 1.96 * se
 		gen low = b - 1.96 * se
 
 		gen raweffect_tmp = b if grp == 0
-		bys prog: egen raweffect = mean(raweffect)
+		bys prog: egen raweffect = mean(raweffect_tmp)
 		replace raweffect = 5 if prog == "avg" 
 
 		gen order = 1 if grp == 2
@@ -182,7 +183,7 @@ cap file close fh
 		global red `" "217 83 79" "'
 		global orange `" "240 173 78" "'
 		
-		if spec == "_c" {
+		if "`spec'" == "_c" {
 
 			gr twoway /// 
 				(rcap high low n if grp == 0, color( $navy ) msize(medium) horizontal xline(0,lcolor(gs9)) xlabel(-20(5)20) xscale(range(-20 20))) ///

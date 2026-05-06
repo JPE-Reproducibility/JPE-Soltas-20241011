@@ -1,4 +1,9 @@
-global imputation 0 
+global imputation 0
+
+* Global seeds — set here so that running any individual .do file
+* interactively (not just run_all.do) starts from a fixed random state.
+set seed 20260504
+set sortseed 20260504
 
 if "`c(username)'" == "esoltas" {
 	

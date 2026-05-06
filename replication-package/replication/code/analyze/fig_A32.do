@@ -48,6 +48,10 @@ file write fh "prog,simulation,spec,regtype,b,se" _n
 
 * Loop over simulations and specifications
 forv simulation = 0(1)30 { 
+	
+	* Need simulation-run specific speeds
+	set seed `=188888 + `simulation''
+	
     foreach spec in 1 0.5 {
 
         foreach prog in snap medicaid liheap schoolmeals ssi wic housing_assistance tanf {

@@ -51,7 +51,13 @@ qui do code/settings.do
 	
 	destring v, replace force
 	
-	gen year = 1998 + (t-9)
+	gen year = 1998 + (t - 9)
+	
+	assert year >= 1998 & year <= 2023
+	su year, meanonly
+	assert r(min) == 1998
+	assert r(max) == 2023
+	
 	drop t
 	
 	statastates, name(geoname)
@@ -94,7 +100,7 @@ qui do code/settings.do
 	
 	gen eq_inc_rpp = 100 * faminct_real / (eqscale*state_price_index)
 	
-	bys year (eq_inc_rpp): gen rk_current_rpp = sum(wtfam) if !missing(rk_lifetime_eq) & !missing(rk_current_eq) & !missing(rk_c_current_eq)
+	bys year (eq_inc_rpp id): gen rk_current_rpp = sum(wtfam) if !missing(rk_lifetime_eq) & !missing(rk_current_eq) & !missing(rk_c_current_eq)
 	bys year: gegen min_rk_current_rpp = min(rk_current_rpp)
 	bys year: gegen max_rk_current_rpp = max(rk_current_rpp)
 	replace rk_current_rpp = 100*(rk_current_rpp - min_rk_current_rpp) / (max_rk_current_rpp - min_rk_current_rpp)
@@ -103,7 +109,7 @@ qui do code/settings.do
 	
 	gen eq_cons_rpp = 100 * eq_cons_real / state_price_index
 	
-	bys year (eq_cons_rpp): gen rk_c_current_rpp = sum(wtfam) if !missing(rk_lifetime_eq) & !missing(rk_current_eq) & !missing(rk_c_current_eq)
+	bys year (eq_cons_rpp id): gen rk_c_current_rpp = sum(wtfam) if !missing(rk_lifetime_eq) & !missing(rk_current_eq) & !missing(rk_c_current_eq)
 	bys year: gegen min_rk_c_current_rpp = min(rk_c_current_rpp)
 	bys year: gegen max_rk_c_current_rpp = max(rk_c_current_rpp)
 	replace rk_c_current_rpp = 100*(rk_c_current_rpp - min_rk_c_current_rpp) / (max_rk_c_current_rpp - min_rk_c_current_rpp)
@@ -134,14 +140,14 @@ file write fh "prog,spec,rpp,b,se" _n
 foreach prog in snap medicaid liheap schoolmeals ssi wic ha tanf  {
 	
 	* Baseline
-	 reg rk_c_current_eq  bs_rk* `prog' if eligsim_`prog'==1 [pw=wtfam],  cl(famid_orig) 
+	 reg rk_c_current_eq  bs_rk* `prog' if eligsim_`prog'==1  & !missing(rk_c_current_rpp) [pw=wtfam],  cl(famid_orig) 
 	  	
 	local b = _b[`prog']
 	local se = _se[`prog']
 	file write fh "`prog',_c,0," (`b') "," (`se') _n
 		
 	* Regional price parity
-	 reg rk_c_current_rpp rpp_rk* `prog' if eligsim_`prog'==1  [pw=wtfam],  cl(famid_orig) 
+	 reg rk_c_current_rpp rpp_rk* `prog' if eligsim_`prog'==1  & !missing(rk_c_current_rpp) [pw=wtfam],  cl(famid_orig) 
 	
 	local b = _b[`prog']
 	local se = _se[`prog']
@@ -167,21 +173,21 @@ foreach prog in snap medicaid liheap schoolmeals ssi wic ha tanf  {
 		
 		local wtname = "wt_`prog'"
 		local wtval = ${`wtname'}
-		replace wtfam = wtfam * `wtval'
+		replace wtfam = wtfam * `wtval' if transfer == "`prog'"
 		
 		di "`prog' : `wtval'"
 			
 	}
 	
 	* All sample
-	qui reghdfe rk_c_current_eq i.prog#c.bs_rk* r_ if eligsim_==1 [pw=wtfam], a(prog) cl(famid_orig) 
+	qui reghdfe rk_c_current_eq i.prog#c.bs_rk* r_ if eligsim_==1 & !missing(rk_c_current_rpp) [pw=wtfam], a(prog) cl(famid_orig) 
 	
 	local b = _b[r_]
 	local se = _se[r_]
 	file write fh "avg,_c,0," (`b') "," (`se') _n
 		
 	* Regional price parity
-	qui reghdfe rk_c_current_rpp i.prog#c.rpp_rk* r_ if eligsim_==1 [pw=wtfam], a(prog) cl(famid_orig) 
+	qui reghdfe rk_c_current_rpp i.prog#c.rpp_rk* r_ if eligsim_==1 & !missing(rk_c_current_rpp) [pw=wtfam], a(prog) cl(famid_orig) 
 	
 	local b = _b[r_]
 	local se = _se[r_]
@@ -194,13 +200,14 @@ cap file close fh
 * make plot
 	
 	import delimited using  "$dir/figures/participation_reg_robustness_rpp.csv", clear
+	sort prog rpp b se
 	duplicates drop prog rpp, force
 	
 	gen high = b + 1.96 * se
 	gen low = b - 1.96 * se
 
 	gen raweffect_tmp = b if rpp == 0
-	bys prog: egen raweffect = mean(raweffect)
+	bys prog: egen raweffect = mean(raweffect_tmp)
 	replace raweffect = 5 if prog == "avg" 
 
 	gen order = 1 if rpp == 0

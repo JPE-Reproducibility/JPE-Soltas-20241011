@@ -102,7 +102,7 @@ foreach prog in snap medicaid ssi ha tanf  {
 		
 		local wtname = "wt_`prog'"
 		local wtval = ${`wtname'}
-		replace finlwt21 = finlwt21 * `wtval'
+		replace finlwt21 = finlwt21 * `wtval' if transfer == "`prog'"
 		
 		di "`prog' : `wtval'"
 			

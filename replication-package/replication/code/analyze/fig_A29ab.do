@@ -73,7 +73,7 @@ foreach p of varlist snap medicaid housing_assistance ssi schoolmeals wic liheap
 		
 		local wtname = "wt_`prog'"
 		local wtval = ${`wtname'}
-		replace wtfam = wtfam * `wtval'
+		replace wtfam = wtfam * `wtval' if transfer == "`prog'"
 		
 		di "`prog' : `wtval'"
 			

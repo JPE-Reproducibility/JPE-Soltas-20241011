@@ -182,7 +182,7 @@ foreach eligvar in yes partial no {
 	foreach prog in snap medicaid liheap schoolmeals ssi wic ha tanf {
 		local wtname = "wt_`prog'"
 		local wtval = ${`wtname'}
-		replace wtfam = wtfam * `wtval'
+		replace wtfam = wtfam * `wtval' if transfer == "`prog'"
 	}
 	
 	if "`eligvar'" == "no" local eligsim = "eligsim_"

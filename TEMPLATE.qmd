@@ -1193,7 +1193,7 @@ There are 4 main do files and 1 Python file.
 
 # Findings {#sec-findings}
 
-Many of the outputs still show discrepancies. This is very likely due to the fact that, although random seeds have been set in the code now, some/many of the outputs in the paper still correspond to runs of the code before the random seeds were set. Here I report a selection of the outputs for which I found observable discrepancies, but I recommend that the authors check all outputs in the paper to ensure they correspond to runs of the code with random seeds set.
+There are still several discrepancies in many of the outputs. See below. For figures, I only reported those that visually appear to be different, but I cannnot rule out that there are also discrepancies in other outputs that are not visually apparent.
 
 ## Missing Requirements
 
@@ -1227,9 +1227,9 @@ You can copy the section above, amended if necessary.
 
 ::: {#fig-a1 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-05-10 a las 20.41.49.png)
+![Paper version](images/Captura de pantalla 2026-05-30 a las 13.00.44.png)
 
-![Replicated version](images/Captura de pantalla 2026-05-10 a las 20.42.03.png)
+![Replicated version](images/Captura de pantalla 2026-05-30 a las 13.01.19.png)
 
 Figure A1
 
@@ -1239,9 +1239,9 @@ Figure A1
 
 ::: {#fig-a6b layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-05-10 a las 20.52.46.png)
+![Paper version](images/Captura de pantalla 2026-05-30 a las 13.10.38.png)
 
-![Replicated version](images/Captura de pantalla 2026-05-10 a las 20.52.59.png)
+![Replicated version](images/Captura de pantalla 2026-05-30 a las 13.10.57.png)
 
 Figure A6b
 
@@ -1251,9 +1251,9 @@ Figure A6b
 
 ::: {#fig-a8 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-05-10 a las 20.57.20.png)
+![Paper version](images/Captura de pantalla 2026-05-30 a las 13.15.06.png)
 
-![Replicated version](images/Captura de pantalla 2026-05-10 a las 20.57.32.png)
+![Replicated version](images/Captura de pantalla 2026-05-30 a las 13.15.22.png)
 
 Figure A8
 
@@ -1263,9 +1263,9 @@ Figure A8
 
 ::: {#fig-a14 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-05-10 a las 21.08.04.png)
+![Paper version](images/Captura de pantalla 2026-05-30 a las 13.31.26.png)
 
-![Replicated version](images/Captura de pantalla 2026-05-10 a las 21.08.21.png)
+![Replicated version](images/Captura de pantalla 2026-05-30 a las 13.31.52.png)
 
 Figure A14
 
@@ -1275,9 +1275,9 @@ Figure A14
 
 ::: {#fig-a15 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-05-10 a las 21.10.26.png)
+![Paper version](images/Captura de pantalla 2026-05-30 a las 13.36.31.png)
 
-![Replicated version](images/Captura de pantalla 2026-05-10 a las 21.10.48.png)
+![Replicated version](images/Captura de pantalla 2026-05-30 a las 13.36.54.png)
 
 Figure A15
 
@@ -1287,23 +1287,11 @@ Figure A15
 
 ::: {#fig-a16b layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-05-10 a las 21.14.27.png)
+![Paper version](images/Captura de pantalla 2026-05-30 a las 13.41.01.png)
 
-![Replicated version](images/Captura de pantalla 2026-05-10 a las 21.14.52.png)
+![Replicated version](images/Captura de pantalla 2026-05-30 a las 13.41.19.png)
 
 Figure A16b
-
-:::
-
-- Discrepancies in Figure A23b (see screenshots below):
-
-::: {#fig-a23b layout-ncol=2}
-
-![Paper version](images/Captura de pantalla 2026-05-10 a las 21.25.06.png)
-
-![Replicated version](images/Captura de pantalla 2026-05-10 a las 21.25.25.png)
-
-Figure A23b
 
 :::
 
@@ -1311,9 +1299,9 @@ Figure A23b
 
 ::: {#fig-a32 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-05-10 a las 21.42.14.png)
+![Paper version](images/Captura de pantalla 2026-05-30 a las 19.02.36.png)
 
-![Replicated version](images/Captura de pantalla 2026-05-10 a las 21.42.33.png)
+![Replicated version](images/Captura de pantalla 2026-05-30 a las 19.02.52.png)
 
 Figure A32
 
@@ -1323,9 +1311,9 @@ Figure A32
 
 ::: {#tab-1 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-05-10 a las 21.46.36.png)
+![Paper version](images/Captura de pantalla 2026-05-30 a las 19.09.48.png)
 
-![Replicated version](images/Captura de pantalla 2026-05-10 a las 21.47.13.png)
+![Replicated version](images/Captura de pantalla 2026-05-30 a las 19.10.10.png)
 
 Table 1
 
@@ -1335,9 +1323,9 @@ Table 1
 
 ::: {#tab-2 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-05-10 a las 21.48.54.png)
+![Paper version](images/Captura de pantalla 2026-05-30 a las 19.12.28.png)
 
-![Replicated version](images/Captura de pantalla 2026-05-10 a las 21.49.08.png)
+![Replicated version](images/Captura de pantalla 2026-05-30 a las 19.12.47.png)
 
 Table 2
 
@@ -1347,9 +1335,9 @@ Table 2
 
 ::: {#tab-3 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-05-10 a las 21.56.56.png)
+![Paper version](images/Captura de pantalla 2026-05-30 a las 19.16.48.png)
 
-![Replicated version](images/Captura de pantalla 2026-05-10 a las 21.57.11.png)
+![Replicated version](images/Captura de pantalla 2026-05-30 a las 19.17.16.png)
 
 Table 3
 
@@ -1359,9 +1347,9 @@ Table 3
 
 ::: {#tab-a1 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-05-11 a las 19.09.24.png)
+![Paper version](images/Captura de pantalla 2026-05-30 a las 19.19.27.png)
 
-![Replicated version](images/Captura de pantalla 2026-05-11 a las 19.09.48.png)
+![Replicated version](images/Captura de pantalla 2026-05-30 a las 19.19.46.png)
 
 Table A1
 
@@ -1371,9 +1359,9 @@ Table A1
 
 ::: {#tab-a3 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-05-11 a las 19.14.18.png)
+![Paper version](images/Captura de pantalla 2026-05-30 a las 19.23.36.png)
 
-![Replicated version](images/Captura de pantalla 2026-05-11 a las 19.14.36.png)
+![Replicated version](images/Captura de pantalla 2026-05-30 a las 19.23.55.png)
 
 Table A3
 
@@ -1383,9 +1371,9 @@ Table A3
 
 ::: {#tab-a5 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-05-11 a las 19.18.57.png)
+![Paper version](images/Captura de pantalla 2026-05-30 a las 19.27.54.png)
 
-![Replicated version](images/Captura de pantalla 2026-05-11 a las 19.19.15.png)
+![Replicated version](images/Captura de pantalla 2026-05-30 a las 19.28.13.png)
 
 Table A5
 
@@ -1395,9 +1383,9 @@ Table A5
 
 ::: {#tab-a6 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-05-11 a las 19.20.50.png)
+![Paper version](images/Captura de pantalla 2026-05-31 a las 0.48.51.png)
 
-![Replicated version](images/Captura de pantalla 2026-05-11 a las 19.21.09.png)
+![Replicated version](images/Captura de pantalla 2026-05-31 a las 0.49.14.png)
 
 Table A6
 
@@ -1407,9 +1395,9 @@ Table A6
 
 ::: {#tab-a7 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-05-11 a las 19.22.27.png)
+![Paper version](images/Captura de pantalla 2026-05-31 a las 0.50.48.png)
 
-![Replicated version](images/Captura de pantalla 2026-05-11 a las 19.22.44.png)
+![Replicated version](images/Captura de pantalla 2026-05-31 a las 0.51.11.png)
 
 Table A7
 
@@ -1419,9 +1407,9 @@ Table A7
 
 ::: {#tab-a8 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-05-11 a las 19.24.24.png)
+![Paper version](images/Captura de pantalla 2026-05-31 a las 0.52.38.png)
 
-![Replicated version](images/Captura de pantalla 2026-05-11 a las 19.24.44.png)
+![Replicated version](images/Captura de pantalla 2026-05-31 a las 0.52.56.png)
 
 Table A8
 
@@ -1431,9 +1419,9 @@ Table A8
 
 ::: {#tab-a11 layout-ncol=2}
 
-![Paper version](images/Captura de pantalla 2026-05-11 a las 19.29.08.png)
+![Paper version](images/Captura de pantalla 2026-05-31 a las 0.57.19.png)
 
-![Replicated version](images/Captura de pantalla 2026-05-11 a las 19.29.28.png)
+![Replicated version](images/Captura de pantalla 2026-05-31 a las 0.57.38.png)
 
 Table A11
 
